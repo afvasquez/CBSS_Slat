@@ -131,8 +131,7 @@ void irda_communication_task(void) {
 				
 				//port_pin_toggle_output_level(LED_BUSY);
 				
-				// Send this data now
-				usart_write_buffer_job(&irda_master, irda_tx_array, 5);
+				
 			break;
 			case IRDA_SLAT_RESET:
 				

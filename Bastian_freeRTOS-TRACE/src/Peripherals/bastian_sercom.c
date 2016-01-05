@@ -149,6 +149,9 @@ static void irda_master_callback_transmitted(const struct usart_module *const mo
 			}
 		break;
 		case IRDA_SLAT_FIRST_RESPONSE:
+			// Read this data now
+			usart_read_buffer_job(&irda_master, irda_rx_array, 5);
+		
 			xTimerResetFromISR ( timer_IrDA_Ping, 0 );
 		break;
 	}
