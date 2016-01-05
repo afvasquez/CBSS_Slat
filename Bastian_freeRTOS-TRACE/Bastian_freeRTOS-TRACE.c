@@ -98,14 +98,12 @@ void irda_communication_task(void) {
 		{
 			case IRDA_SLAT_PING:
 				irda_timed_out = pdFALSE;
-			
-				// Set the ERROR LED to indicate the start of an Rx, sampling sequence
-				port_pin_set_output_level(LED_ERROR, pdTRUE);
 				
 				// Start the necessary timers 
-				vTracePrintF(event_channel, "Rx Request.");
+				//vTracePrintF(event_channel, "Rx Request.");
 				xTimerReset( timer_IrDA_Ping, 0 );
-				//xTimerReset( timer_IrDA_Sync, 0 );	// Reset, immediately, the syncing timers
+				
+				port_pin_set_output_level(LED_ERROR, pdTRUE);
 				
 				usart_enable_transceiver( &irda_master, USART_TRANSCEIVER_RX );	// Enable Receiving Transceiver
 				usart_read_buffer_job( &irda_master, irda_rx_array, 3 );	// Try to get the 3-Byte ping
@@ -119,6 +117,19 @@ void irda_communication_task(void) {
 				irda_tx_array[4] = 0xBB;
 				
 				vTracePrintF(event_channel, "Send Resp.");
+				
+				// Send this data now
+				usart_write_buffer_job(&irda_master, irda_tx_array, 5);
+			break;
+			case IRDA_SLAT_FIRST_RESPONSE:	// This is the action taken for
+				// Reset the response timer
+				xTimerReset( timer_IrDA_Ping, 0 );
+				
+				// Set the ERROR LED to indicate the start of an Rx, sampling sequence
+				port_pin_set_output_level(LED_BUSY, pdTRUE);
+				
+				
+				//port_pin_toggle_output_level(LED_BUSY);
 				
 				// Send this data now
 				usart_write_buffer_job(&irda_master, irda_tx_array, 5);
@@ -144,11 +155,14 @@ void timer_irda_ping_callback(TimerHandle_t pxTimer)
 	configASSERT( pxTimer );
 	
 	switch ( irda_comm_state ) {
+		case IRDA_SLAT_FIRST_RESPONSE:
+			irda_comm_state = IRDA_SLAT_PING;	// Go back to the Ping Mode
 		case IRDA_SLAT_PING:
 			irda_timed_out = pdTRUE;
 			
-			vTracePrintF(event_channel, "Ping TO!");
-			port_pin_set_output_level(LED_ERROR, pdFALSE);
+			port_pin_set_output_level(LED_BUSY, pdFALSE);
+			//vTracePrintF(event_channel, "Ping TO!");
+			//port_pin_set_output_level(LED_ERROR, pdFALSE);
 			// There was no significant response to the ping,
 			// Reset accordingly
 			usart_abort_job( &irda_master, USART_TRANSCEIVER_RX );
@@ -165,5 +179,25 @@ void timer_irda_sync_callback(TimerHandle_t pxTimer)
 {
 	configASSERT( pxTimer );
 	
+	// This is the timeout for no response from the Beacon
+	// If the system reaches this point at the intended state, 
+	//	we proceed 
+	
+	switch ( irda_comm_state ) {
+		case IRDA_SLAT_FIRST_RESPONSE:
+		irda_timed_out = pdTRUE;
+		irda_comm_state = IRDA_SLAT_PING;	// Go back to the Ping Mode
+		
+		//port_pin_set_output_level(LED_BUSY, pdFALSE);
+		//vTracePrintF(event_channel, "Sync TO!");
+		//port_pin_set_output_level(LED_ERROR, pdFALSE);
+		// There was no significant response to the ping,
+		// Reset accordingly
+		usart_abort_job( &irda_master, USART_TRANSCEIVER_RX );
+		
+		// The IrDA task is now to reset and ping again
+		//vTaskResume( irda_task_handler );
+		break;
+	}
 	
 }

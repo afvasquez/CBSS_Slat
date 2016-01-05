@@ -57,6 +57,7 @@ BaseType_t irda_timed_out = pdFALSE;
 static void irda_master_callback_received(const struct usart_module *const module) {
 	
 	BaseType_t xYieldRequired; 
+	//xTimerResetFromISR ( timer_IrDA_Sync, 0 );	// Reset, immediately, the syncing timers
 	
 	if ( !irda_timed_out ) {
 		usart_disable_transceiver(&irda_master, USART_TRANSCEIVER_RX);
@@ -83,7 +84,8 @@ static void irda_master_callback_received(const struct usart_module *const modul
 							// Start the trace
 							uiTraceStart();
 						}
-					
+						
+						
  						port_pin_set_output_level(LED_ERROR, pdFALSE);
 
  						vTracePrintF(event_channel, "Rxd Header!"); 					
@@ -120,16 +122,21 @@ static void irda_master_callback_received(const struct usart_module *const modul
 // IrDA Tx Callback Function
 static void irda_master_callback_transmitted(const struct usart_module *const module) {
 	BaseType_t xYieldRequired; 
-	
+		
 	switch ( irda_comm_state ) {
 		case IRDA_SLAT_FIRST:	// This is the case where the first Response has been sent
-			irda_comm_state = IRDA_SLAT_PING;	// Go back to the Ping Mode
-			vTracePrintF(event_channel, "Resp Sent.");
-			
+			portENTER_CRITICAL();
+					// *********** We are about to start listening to a message from the Beacon
+				// vvvvv--- Changed to the next line in this code
+				//irda_comm_state = IRDA_SLAT_PING;	// Go back to the Ping Mode
+			//vTracePrintF(event_channel, ".");
+			irda_comm_state = IRDA_SLAT_FIRST_RESPONSE;
+						
 				// Make sure to reset the timer
 			xTimerResetFromISR ( timer_IrDA_Ping, 0 );
+			//xTimerResetFromISR ( timer_IrDA_Sync, 0 );	// Reset, immediately, the syncing timers
 			
-			port_pin_toggle_output_level(LED_BUSY);
+			portEXIT_CRITICAL();
 			
 			xYieldRequired = xTaskResumeFromISR( irda_task_handler );
 			
@@ -140,6 +147,9 @@ static void irda_master_callback_transmitted(const struct usart_module *const mo
 				// the documentation and examples for your port.
 				portYIELD_FROM_ISR(xYieldRequired);
 			}
+		break;
+		case IRDA_SLAT_FIRST_RESPONSE:
+			xTimerResetFromISR ( timer_IrDA_Ping, 0 );
 		break;
 	}
 }
