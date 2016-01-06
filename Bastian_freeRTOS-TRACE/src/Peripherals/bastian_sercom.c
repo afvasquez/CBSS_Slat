@@ -84,6 +84,7 @@ static void irda_master_callback_received(const struct usart_module *const modul
 							uiTraceStart();
 						}
 					
+						port_pin_set_output_level(LED_BUSY, pdTRUE);
  						port_pin_set_output_level(LED_ERROR, pdFALSE);
 
  						vTracePrintF(event_channel, "Rxd Header!"); 					
@@ -129,7 +130,7 @@ static void irda_master_callback_transmitted(const struct usart_module *const mo
 				// Make sure to reset the timer
 			xTimerResetFromISR ( timer_IrDA_Ping, 0 );
 			
-			port_pin_toggle_output_level(LED_BUSY);
+			port_pin_set_output_level(LED_BUSY, pdFALSE);
 			
 			xYieldRequired = xTaskResumeFromISR( irda_task_handler );
 			
@@ -141,14 +142,14 @@ static void irda_master_callback_transmitted(const struct usart_module *const mo
 				portYIELD_FROM_ISR(xYieldRequired);
 			}
 		break;
-<<<<<<< HEAD
-		case IRDA_SLAT_FIRST_RESPONSE:
+//<<<<<<< HEAD
+		//case IRDA_SLAT_FIRST_RESPONSE:
 			// Read this data now
-			usart_read_buffer_job(&irda_master, irda_rx_array, 5);
+		//	usart_read_buffer_job(&irda_master, irda_rx_array, 5);
 		
-			xTimerResetFromISR ( timer_IrDA_Ping, 0 );
-		break;
-=======
->>>>>>> parent of 46baf4b... r010516
+		//	xTimerResetFromISR ( timer_IrDA_Ping, 0 );
+		//break;
+//=======
+//>>>>>>> parent of 46baf4b... r010516
 	}
 }

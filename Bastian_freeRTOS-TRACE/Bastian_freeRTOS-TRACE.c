@@ -103,7 +103,7 @@ void irda_communication_task(void) {
 				port_pin_set_output_level(LED_ERROR, pdTRUE);
 				
 				// Start the necessary timers 
-				vTracePrintF(event_channel, "Rx Request.");
+				//vTracePrintF(event_channel, "Rx Request.");
 				xTimerReset( timer_IrDA_Ping, 0 );
 				//xTimerReset( timer_IrDA_Sync, 0 );	// Reset, immediately, the syncing timers
 				
@@ -123,21 +123,18 @@ void irda_communication_task(void) {
 				// Send this data now
 				usart_write_buffer_job(&irda_master, irda_tx_array, 5);
 			break;
-<<<<<<< HEAD
-			case IRDA_SLAT_FIRST_RESPONSE:	// This is the action taken for
+			//case IRDA_SLAT_FIRST_RESPONSE:	// This is the action taken for
 				// Reset the response timer
-				xTimerReset( timer_IrDA_Ping, 0 );
+			//	xTimerReset( timer_IrDA_Ping, 0 );
 				
 				// Set the ERROR LED to indicate the start of an Rx, sampling sequence
-				port_pin_set_output_level(LED_BUSY, pdTRUE);
+			//	port_pin_set_output_level(LED_BUSY, pdTRUE);
 				
 				
 				//port_pin_toggle_output_level(LED_BUSY);
 				
 				
-			break;
-=======
->>>>>>> parent of 46baf4b... r010516
+			//break;
 			case IRDA_SLAT_RESET:
 				
 			break;	
