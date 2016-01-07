@@ -1157,7 +1157,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gn
 LOAD c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
                 0x00002000                STACK_SIZE = DEFINED (STACK_SIZE)?STACK_SIZE:DEFINED (__stack_size__)?__stack_size__:0x2000
 
-.text           0x00000000     0x6b20
+.text           0x00000000     0x6b8c
                 0x00000000                . = ALIGN (0x4)
                 0x00000000                _sfixed = .
  *(.vectors .vectors.*)
@@ -1169,631 +1169,631 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gn
                 0x00000110        0xc Bastian_freeRTOS-TRACE.o
                 0x00000110                timer_irda_sync_callback
  .text.irda_communication_task
-                0x0000011c       0xf0 Bastian_freeRTOS-TRACE.o
+                0x0000011c       0xf8 Bastian_freeRTOS-TRACE.o
                 0x0000011c                irda_communication_task
  .text.timer_irda_ping_callback
-                0x0000020c       0x80 Bastian_freeRTOS-TRACE.o
-                0x0000020c                timer_irda_ping_callback
- .text.main     0x0000028c       0xf0 Bastian_freeRTOS-TRACE.o
-                0x0000028c                main
+                0x00000214       0x90 Bastian_freeRTOS-TRACE.o
+                0x00000214                timer_irda_ping_callback
+ .text.main     0x000002a4       0xf0 Bastian_freeRTOS-TRACE.o
+                0x000002a4                main
  .text._sercom_get_sync_baud_val
-                0x0000037c       0x28 src/ASF/sam0/drivers/sercom/sercom.o
-                0x0000037c                _sercom_get_sync_baud_val
- *fill*         0x000003a4        0x4 
+                0x00000394       0x28 src/ASF/sam0/drivers/sercom/sercom.o
+                0x00000394                _sercom_get_sync_baud_val
+ *fill*         0x000003bc        0x4 
  .text._sercom_get_async_baud_val
-                0x000003a8      0x1b0 src/ASF/sam0/drivers/sercom/sercom.o
-                0x000003a8                _sercom_get_async_baud_val
+                0x000003c0      0x1b0 src/ASF/sam0/drivers/sercom/sercom.o
+                0x000003c0                _sercom_get_async_baud_val
  .text.sercom_set_gclk_generator
-                0x00000558       0x50 src/ASF/sam0/drivers/sercom/sercom.o
-                0x00000558                sercom_set_gclk_generator
+                0x00000570       0x50 src/ASF/sam0/drivers/sercom/sercom.o
+                0x00000570                sercom_set_gclk_generator
  .text._sercom_get_default_pad
-                0x000005a8      0x108 src/ASF/sam0/drivers/sercom/sercom.o
-                0x000005a8                _sercom_get_default_pad
+                0x000005c0      0x108 src/ASF/sam0/drivers/sercom/sercom.o
+                0x000005c0                _sercom_get_default_pad
  .text._sercom_get_sercom_inst_index
-                0x000006b0       0x44 src/ASF/sam0/drivers/sercom/sercom.o
-                0x000006b0                _sercom_get_sercom_inst_index
+                0x000006c8       0x44 src/ASF/sam0/drivers/sercom/sercom.o
+                0x000006c8                _sercom_get_sercom_inst_index
  .text.irda_master_callback_transmitted
-                0x000006f4       0x60 src/Peripherals/bastian_sercom.o
+                0x0000070c       0x74 src/Peripherals/bastian_sercom.o
  .text.irda_master_callback_received
-                0x00000754      0x12c src/Peripherals/bastian_sercom.o
+                0x00000780      0x184 src/Peripherals/bastian_sercom.o
  .text.bastian_IrDA_configuration
-                0x00000880       0xe4 src/Peripherals/bastian_sercom.o
-                0x00000880                bastian_IrDA_configuration
+                0x00000904       0xe4 src/Peripherals/bastian_sercom.o
+                0x00000904                bastian_IrDA_configuration
  .text._sercom_default_handler
-                0x00000964        0x4 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+                0x000009e8        0x4 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
  .text._sercom_set_handler
-                0x00000968       0x3c src/ASF/sam0/drivers/sercom/sercom_interrupt.o
-                0x00000968                _sercom_set_handler
+                0x000009ec       0x3c src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+                0x000009ec                _sercom_set_handler
  .text._sercom_get_interrupt_vector
-                0x000009a4       0x2c src/ASF/sam0/drivers/sercom/sercom_interrupt.o
-                0x000009a4                _sercom_get_interrupt_vector
+                0x00000a28       0x2c src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+                0x00000a28                _sercom_get_interrupt_vector
  .text.SERCOM0_Handler
-                0x000009d0       0x10 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
-                0x000009d0                SERCOM0_Handler
+                0x00000a54       0x10 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+                0x00000a54                SERCOM0_Handler
  .text.SERCOM1_Handler
-                0x000009e0       0x10 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
-                0x000009e0                SERCOM1_Handler
+                0x00000a64       0x10 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+                0x00000a64                SERCOM1_Handler
  .text.SERCOM2_Handler
-                0x000009f0       0x10 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
-                0x000009f0                SERCOM2_Handler
+                0x00000a74       0x10 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+                0x00000a74                SERCOM2_Handler
  .text.SERCOM3_Handler
-                0x00000a00       0x10 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
-                0x00000a00                SERCOM3_Handler
+                0x00000a84       0x10 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+                0x00000a84                SERCOM3_Handler
  .text.usart_init
-                0x00000a10      0x2f8 src/ASF/sam0/drivers/sercom/usart/usart.o
-                0x00000a10                usart_init
+                0x00000a94      0x2f8 src/ASF/sam0/drivers/sercom/usart/usart.o
+                0x00000a94                usart_init
  .text._usart_write_buffer
-                0x00000d08       0x3c src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
-                0x00000d08                _usart_write_buffer
+                0x00000d8c       0x3c src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
+                0x00000d8c                _usart_write_buffer
  .text._usart_read_buffer
-                0x00000d44       0x50 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
-                0x00000d44                _usart_read_buffer
+                0x00000dc8       0x50 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
+                0x00000dc8                _usart_read_buffer
  .text.usart_register_callback
-                0x00000d94       0x18 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
-                0x00000d94                usart_register_callback
+                0x00000e18       0x18 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
+                0x00000e18                usart_register_callback
  .text.usart_write_buffer_job
-                0x00000dac       0x20 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
-                0x00000dac                usart_write_buffer_job
+                0x00000e30       0x20 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
+                0x00000e30                usart_write_buffer_job
  .text.usart_read_buffer_job
-                0x00000dcc       0x20 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
-                0x00000dcc                usart_read_buffer_job
+                0x00000e50       0x20 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
+                0x00000e50                usart_read_buffer_job
  .text.usart_abort_job
-                0x00000dec       0x20 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
-                0x00000dec                usart_abort_job
+                0x00000e70       0x20 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
+                0x00000e70                usart_abort_job
  .text._usart_interrupt_handler
-                0x00000e0c      0x19c src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
-                0x00000e0c                _usart_interrupt_handler
+                0x00000e90      0x19c src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
+                0x00000e90                _usart_interrupt_handler
  .text.vTraceError
-                0x00000fa8       0x5c src/ASF/thirdparty/freertos/trace/trcBase.o
-                0x00000fa8                vTraceError
+                0x0000102c       0x5c src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x0000102c                vTraceError
  .text.prvTraceInitTraceData
-                0x00001004      0x1b0 src/ASF/thirdparty/freertos/trace/trcBase.o
-                0x00001004                prvTraceInitTraceData
+                0x00001088      0x1b0 src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x00001088                prvTraceInitTraceData
  .text.xTraceNextFreeEventBufferSlot
-                0x000011b4       0x40 src/ASF/thirdparty/freertos/trace/trcBase.o
-                0x000011b4                xTraceNextFreeEventBufferSlot
+                0x00001238       0x40 src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x00001238                xTraceNextFreeEventBufferSlot
  .text.uiIndexOfObject
-                0x000011f4       0x54 src/ASF/thirdparty/freertos/trace/trcBase.o
-                0x000011f4                uiIndexOfObject
+                0x00001278       0x54 src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x00001278                uiIndexOfObject
  .text.xTraceGetObjectHandle
-                0x00001248      0x154 src/ASF/thirdparty/freertos/trace/trcBase.o
-                0x00001248                xTraceGetObjectHandle
+                0x000012cc      0x154 src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x000012cc                xTraceGetObjectHandle
  .text.vTraceFreeObjectHandle
-                0x0000139c       0x70 src/ASF/thirdparty/freertos/trace/trcBase.o
-                0x0000139c                vTraceFreeObjectHandle
+                0x00001420       0x70 src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x00001420                vTraceFreeObjectHandle
  .text.vTraceSetObjectName
-                0x0000140c       0x90 src/ASF/thirdparty/freertos/trace/trcBase.o
-                0x0000140c                vTraceSetObjectName
+                0x00001490       0x90 src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x00001490                vTraceSetObjectName
  .text.prvCheckDataToBeOverwrittenForMultiEntryEvents
-                0x0000149c       0xc0 src/ASF/thirdparty/freertos/trace/trcBase.o
-                0x0000149c                prvCheckDataToBeOverwrittenForMultiEntryEvents
+                0x00001520       0xc0 src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x00001520                prvCheckDataToBeOverwrittenForMultiEntryEvents
  .text.prvTraceUpdateCounters
-                0x0000155c       0x3c src/ASF/thirdparty/freertos/trace/trcBase.o
-                0x0000155c                prvTraceUpdateCounters
+                0x000015e0       0x3c src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x000015e0                prvTraceUpdateCounters
  .text.prvTraceGetDTS
-                0x00001598      0x11c src/ASF/thirdparty/freertos/trace/trcBase.o
-                0x00001598                prvTraceGetDTS
+                0x0000161c      0x11c src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x0000161c                prvTraceGetDTS
  .text.prvTraceLookupSymbolTableEntry
-                0x000016b4       0xd0 src/ASF/thirdparty/freertos/trace/trcBase.o
-                0x000016b4                prvTraceLookupSymbolTableEntry
+                0x00001738       0xd0 src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x00001738                prvTraceLookupSymbolTableEntry
  .text.prvTraceCreateSymbolTableEntry
-                0x00001784       0xdc src/ASF/thirdparty/freertos/trace/trcBase.o
-                0x00001784                prvTraceCreateSymbolTableEntry
+                0x00001808       0xdc src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x00001808                prvTraceCreateSymbolTableEntry
  .text.prvTraceGetChecksum
-                0x00001860       0x60 src/ASF/thirdparty/freertos/trace/trcBase.o
-                0x00001860                prvTraceGetChecksum
+                0x000018e4       0x60 src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x000018e4                prvTraceGetChecksum
  .text.prvTraceOpenSymbol
-                0x000018c0       0x9c src/ASF/thirdparty/freertos/trace/trcBase.o
-                0x000018c0                prvTraceOpenSymbol
+                0x00001944       0x9c src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x00001944                prvTraceOpenSymbol
  .text.vTracePortGetTimeStamp
-                0x0000195c       0x78 src/ASF/thirdparty/freertos/trace/trcHardwarePort.o
-                0x0000195c                vTracePortGetTimeStamp
+                0x000019e0       0x78 src/ASF/thirdparty/freertos/trace/trcHardwarePort.o
+                0x000019e0                vTracePortGetTimeStamp
  .text.vTraceStoreTaskReady
-                0x000019d4       0xb8 src/ASF/thirdparty/freertos/trace/trcKernel.o
-                0x000019d4                vTraceStoreTaskReady
+                0x00001a58       0xb8 src/ASF/thirdparty/freertos/trace/trcKernel.o
+                0x00001a58                vTraceStoreTaskReady
  .text.vTraceStoreKernelCall
-                0x00001a8c      0x104 src/ASF/thirdparty/freertos/trace/trcKernel.o
-                0x00001a8c                vTraceStoreKernelCall
+                0x00001b10      0x104 src/ASF/thirdparty/freertos/trace/trcKernel.o
+                0x00001b10                vTraceStoreKernelCall
  .text.vTraceStoreKernelCallWithParam
-                0x00001b90      0x134 src/ASF/thirdparty/freertos/trace/trcKernel.o
-                0x00001b90                vTraceStoreKernelCallWithParam
+                0x00001c14      0x134 src/ASF/thirdparty/freertos/trace/trcKernel.o
+                0x00001c14                vTraceStoreKernelCallWithParam
  .text.vTraceStoreKernelCallWithNumericParamOnly
-                0x00001cc4       0xf4 src/ASF/thirdparty/freertos/trace/trcKernel.o
-                0x00001cc4                vTraceStoreKernelCallWithNumericParamOnly
+                0x00001d48       0xf4 src/ASF/thirdparty/freertos/trace/trcKernel.o
+                0x00001d48                vTraceStoreKernelCallWithNumericParamOnly
  .text.vTraceStoreObjectNameOnCloseEvent
-                0x00001db8       0x74 src/ASF/thirdparty/freertos/trace/trcKernel.o
-                0x00001db8                vTraceStoreObjectNameOnCloseEvent
+                0x00001e3c       0x74 src/ASF/thirdparty/freertos/trace/trcKernel.o
+                0x00001e3c                vTraceStoreObjectNameOnCloseEvent
  .text.vTraceStoreObjectPropertiesOnCloseEvent
-                0x00001e2c       0x9c src/ASF/thirdparty/freertos/trace/trcKernel.o
-                0x00001e2c                vTraceStoreObjectPropertiesOnCloseEvent
+                0x00001eb0       0x9c src/ASF/thirdparty/freertos/trace/trcKernel.o
+                0x00001eb0                vTraceStoreObjectPropertiesOnCloseEvent
  .text.vTraceSetPriorityProperty
-                0x00001ec8       0x58 src/ASF/thirdparty/freertos/trace/trcKernel.o
-                0x00001ec8                vTraceSetPriorityProperty
+                0x00001f4c       0x58 src/ASF/thirdparty/freertos/trace/trcKernel.o
+                0x00001f4c                vTraceSetPriorityProperty
  .text.uiTraceGetPriorityProperty
-                0x00001f20       0x5c src/ASF/thirdparty/freertos/trace/trcKernel.o
-                0x00001f20                uiTraceGetPriorityProperty
+                0x00001fa4       0x5c src/ASF/thirdparty/freertos/trace/trcKernel.o
+                0x00001fa4                uiTraceGetPriorityProperty
  .text.vTraceSetObjectState
-                0x00001f7c       0x58 src/ASF/thirdparty/freertos/trace/trcKernel.o
-                0x00001f7c                vTraceSetObjectState
+                0x00002000       0x58 src/ASF/thirdparty/freertos/trace/trcKernel.o
+                0x00002000                vTraceSetObjectState
  .text.uiTraceGetObjectState
-                0x00001fd4       0x5c src/ASF/thirdparty/freertos/trace/trcKernel.o
-                0x00001fd4                uiTraceGetObjectState
+                0x00002058       0x5c src/ASF/thirdparty/freertos/trace/trcKernel.o
+                0x00002058                uiTraceGetObjectState
  .text.vTraceStoreTaskswitch
-                0x00002030       0xd0 src/ASF/thirdparty/freertos/trace/trcKernel.o
-                0x00002030                vTraceStoreTaskswitch
+                0x000020b4       0xd0 src/ASF/thirdparty/freertos/trace/trcKernel.o
+                0x000020b4                vTraceStoreTaskswitch
  .text.vTraceSetTaskInstanceFinished
-                0x00002100       0x40 src/ASF/thirdparty/freertos/trace/trcKernel.o
-                0x00002100                vTraceSetTaskInstanceFinished
+                0x00002184       0x40 src/ASF/thirdparty/freertos/trace/trcKernel.o
+                0x00002184                vTraceSetTaskInstanceFinished
  .text.prvTraceGetObjectNumber
-                0x00002140       0x10 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
-                0x00002140                prvTraceGetObjectNumber
+                0x000021c4       0x10 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
+                0x000021c4                prvTraceGetObjectNumber
  .text.prvTraceGetObjectType
-                0x00002150        0xc src/ASF/thirdparty/freertos/trace/trcKernelPort.o
-                0x00002150                prvTraceGetObjectType
+                0x000021d4        0xc src/ASF/thirdparty/freertos/trace/trcKernelPort.o
+                0x000021d4                prvTraceGetObjectType
  .text.prvTraceGetTaskNumber
-                0x0000215c       0x10 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
-                0x0000215c                prvTraceGetTaskNumber
+                0x000021e0       0x10 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
+                0x000021e0                prvTraceGetTaskNumber
  .text.prvTraceGetCurrentTaskHandle
-                0x0000216c        0xc src/ASF/thirdparty/freertos/trace/trcKernelPort.o
-                0x0000216c                prvTraceGetCurrentTaskHandle
+                0x000021f0        0xc src/ASF/thirdparty/freertos/trace/trcKernelPort.o
+                0x000021f0                prvTraceGetCurrentTaskHandle
  .text.vTraceInitObjectPropertyTable
-                0x00002178       0xb0 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
-                0x00002178                vTraceInitObjectPropertyTable
+                0x000021fc       0xb0 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
+                0x000021fc                vTraceInitObjectPropertyTable
  .text.vTraceInitObjectHandleStack
-                0x00002228       0x50 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
-                0x00002228                vTraceInitObjectHandleStack
+                0x000022ac       0x50 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
+                0x000022ac                vTraceInitObjectHandleStack
  .text.pszTraceGetErrorNotEnoughHandles
-                0x00002278       0x50 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
-                0x00002278                pszTraceGetErrorNotEnoughHandles
+                0x000022fc       0x50 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
+                0x000022fc                pszTraceGetErrorNotEnoughHandles
  .text.uiTraceIsObjectExcluded
-                0x000022c8       0xdc src/ASF/thirdparty/freertos/trace/trcKernelPort.o
-                0x000022c8                uiTraceIsObjectExcluded
+                0x0000234c       0xdc src/ASF/thirdparty/freertos/trace/trcKernelPort.o
+                0x0000234c                uiTraceIsObjectExcluded
  .text.writeInt32
-                0x000023a4       0x50 src/ASF/thirdparty/freertos/trace/trcUser.o
+                0x00002428       0x50 src/ASF/thirdparty/freertos/trace/trcUser.o
  .text.writeInt16
-                0x000023f4       0x50 src/ASF/thirdparty/freertos/trace/trcUser.o
+                0x00002478       0x50 src/ASF/thirdparty/freertos/trace/trcUser.o
  .text.vTraceInitTraceData
-                0x00002444        0xc src/ASF/thirdparty/freertos/trace/trcUser.o
-                0x00002444                vTraceInitTraceData
+                0x000024c8        0xc src/ASF/thirdparty/freertos/trace/trcUser.o
+                0x000024c8                vTraceInitTraceData
  .text.uiTraceStart
-                0x00002450       0xb0 src/ASF/thirdparty/freertos/trace/trcUser.o
-                0x00002450                uiTraceStart
+                0x000024d4       0xb0 src/ASF/thirdparty/freertos/trace/trcUser.o
+                0x000024d4                uiTraceStart
  .text.xTraceOpenLabel
-                0x00002500       0x24 src/ASF/thirdparty/freertos/trace/trcUser.o
-                0x00002500                xTraceOpenLabel
+                0x00002584       0x24 src/ASF/thirdparty/freertos/trace/trcUser.o
+                0x00002584                xTraceOpenLabel
  .text.vTracePrintF_Helper
-                0x00002524      0x3b8 src/ASF/thirdparty/freertos/trace/trcUser.o
-                0x00002524                vTracePrintF_Helper
+                0x000025a8      0x3b8 src/ASF/thirdparty/freertos/trace/trcUser.o
+                0x000025a8                vTracePrintF_Helper
  .text.vTracePrintF
-                0x000028dc       0x20 src/ASF/thirdparty/freertos/trace/trcUser.o
-                0x000028dc                vTracePrintF
+                0x00002960       0x20 src/ASF/thirdparty/freertos/trace/trcUser.o
+                0x00002960                vTracePrintF
  .text.vListInitialise
-                0x000028fc       0x18 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
-                0x000028fc                vListInitialise
+                0x00002980       0x18 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
+                0x00002980                vListInitialise
  .text.vListInitialiseItem
-                0x00002914        0x8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
-                0x00002914                vListInitialiseItem
+                0x00002998        0x8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
+                0x00002998                vListInitialiseItem
  .text.vListInsertEnd
-                0x0000291c       0x18 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
-                0x0000291c                vListInsertEnd
+                0x000029a0       0x18 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
+                0x000029a0                vListInsertEnd
  .text.vListInsert
-                0x00002934       0x30 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
-                0x00002934                vListInsert
+                0x000029b8       0x30 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
+                0x000029b8                vListInsert
  .text.uxListRemove
-                0x00002964       0x24 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
-                0x00002964                uxListRemove
+                0x000029e8       0x24 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
+                0x000029e8                uxListRemove
  .text.prvTaskExitError
-                0x00002988       0x14 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+                0x00002a0c       0x14 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
  .text.vPortStartFirstTask
-                0x0000299c       0x20 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+                0x00002a20       0x20 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
  .text.pxPortInitialiseStack
-                0x000029bc       0x20 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
-                0x000029bc                pxPortInitialiseStack
+                0x00002a40       0x20 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+                0x00002a40                pxPortInitialiseStack
  .text.SVC_Handler
-                0x000029dc        0x4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
-                0x000029dc                SVC_Handler
+                0x00002a60        0x4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+                0x00002a60                SVC_Handler
  .text.vPortYield
-                0x000029e0       0x18 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
-                0x000029e0                vPortYield
+                0x00002a64       0x18 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+                0x00002a64                vPortYield
  .text.vPortEnterCritical
-                0x000029f8       0x18 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
-                0x000029f8                vPortEnterCritical
+                0x00002a7c       0x18 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+                0x00002a7c                vPortEnterCritical
  .text.vPortExitCritical
-                0x00002a10       0x20 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
-                0x00002a10                vPortExitCritical
+                0x00002a94       0x20 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+                0x00002a94                vPortExitCritical
  .text.ulSetInterruptMaskFromISR
-                0x00002a30        0xc src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
-                0x00002a30                ulSetInterruptMaskFromISR
+                0x00002ab4        0xc src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+                0x00002ab4                ulSetInterruptMaskFromISR
  .text.vClearInterruptMaskFromISR
-                0x00002a3c        0x8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
-                0x00002a3c                vClearInterruptMaskFromISR
+                0x00002ac0        0x8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+                0x00002ac0                vClearInterruptMaskFromISR
  .text.PendSV_Handler
-                0x00002a44       0x44 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
-                0x00002a44                PendSV_Handler
+                0x00002ac8       0x44 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+                0x00002ac8                PendSV_Handler
  .text.SysTick_Handler
-                0x00002a88       0x30 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
-                0x00002a88                SysTick_Handler
+                0x00002b0c       0x30 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+                0x00002b0c                SysTick_Handler
  .text.vPortSetupTimerInterrupt
-                0x00002ab8       0x24 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
-                0x00002ab8                vPortSetupTimerInterrupt
+                0x00002b3c       0x24 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+                0x00002b3c                vPortSetupTimerInterrupt
  .text.xPortStartScheduler
-                0x00002adc       0x40 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
-                0x00002adc                xPortStartScheduler
+                0x00002b60       0x40 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+                0x00002b60                xPortStartScheduler
  .text.pvPortMalloc
-                0x00002b1c       0x64 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.o
-                0x00002b1c                pvPortMalloc
+                0x00002ba0       0x64 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.o
+                0x00002ba0                pvPortMalloc
  .text.vPortFree
-                0x00002b80        0xc src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.o
-                0x00002b80                vPortFree
+                0x00002c04        0xc src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.o
+                0x00002c04                vPortFree
  .text.prvCopyDataToQueue
-                0x00002b8c       0x78 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+                0x00002c10       0x78 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
  .text.prvNotifyQueueSetContainer
-                0x00002c04       0xc8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+                0x00002c88       0xc8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
  .text.prvCopyDataFromQueue
-                0x00002ccc       0x28 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+                0x00002d50       0x28 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
  .text.prvUnlockQueue
-                0x00002cf4       0xa8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+                0x00002d78       0xa8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
  .text.xQueueGenericReset
-                0x00002d9c       0x78 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
-                0x00002d9c                xQueueGenericReset
+                0x00002e20       0x78 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+                0x00002e20                xQueueGenericReset
  .text.xQueueGenericCreate
-                0x00002e14       0xd4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
-                0x00002e14                xQueueGenericCreate
+                0x00002e98       0xd4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+                0x00002e98                xQueueGenericCreate
  .text.xQueueGenericSend
-                0x00002ee8      0x250 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
-                0x00002ee8                xQueueGenericSend
+                0x00002f6c      0x250 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+                0x00002f6c                xQueueGenericSend
  .text.xQueueGenericSendFromISR
-                0x00003138      0x15c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
-                0x00003138                xQueueGenericSendFromISR
+                0x000031bc      0x15c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+                0x000031bc                xQueueGenericSendFromISR
  .text.xQueueGenericReceive
-                0x00003294      0x2c0 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
-                0x00003294                xQueueGenericReceive
+                0x00003318      0x2c0 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+                0x00003318                xQueueGenericReceive
  .text.uxQueueGetQueueNumber
-                0x00003554        0x4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
-                0x00003554                uxQueueGetQueueNumber
+                0x000035d8        0x4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+                0x000035d8                uxQueueGetQueueNumber
  .text.ucQueueGetQueueType
-                0x00003558        0x8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
-                0x00003558                ucQueueGetQueueType
+                0x000035dc        0x8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+                0x000035dc                ucQueueGetQueueType
  .text.vQueueWaitForMessageRestricted
-                0x00003560       0x4c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
-                0x00003560                vQueueWaitForMessageRestricted
+                0x000035e4       0x4c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+                0x000035e4                vQueueWaitForMessageRestricted
  .text.prvTaskIsTaskSuspended
-                0x000035ac       0x2c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00003630       0x2c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
  .text.prvResetNextTaskUnblockTime
-                0x000035d8       0x2c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x0000365c       0x2c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
  .text.prvAddCurrentTaskToDelayedList
-                0x00003604       0x44 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00003688       0x44 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
  .text.xTaskGenericCreate
-                0x00003648      0x24c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x00003648                xTaskGenericCreate
+                0x000036cc      0x24c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x000036cc                xTaskGenericCreate
  .text.vTaskResume
-                0x00003894       0xa4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x00003894                vTaskResume
+                0x00003918       0xa4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00003918                vTaskResume
  .text.xTaskResumeFromISR
-                0x00003938       0xb4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x00003938                xTaskResumeFromISR
+                0x000039bc       0xb4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x000039bc                xTaskResumeFromISR
  .text.vTaskStartScheduler
-                0x000039ec       0x60 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x000039ec                vTaskStartScheduler
+                0x00003a70       0x60 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00003a70                vTaskStartScheduler
  .text.vTaskSuspendAll
-                0x00003a4c       0x10 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x00003a4c                vTaskSuspendAll
+                0x00003ad0       0x10 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00003ad0                vTaskSuspendAll
  .text.xTaskGetTickCount
-                0x00003a5c       0x20 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x00003a5c                xTaskGetTickCount
+                0x00003ae0       0x20 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00003ae0                xTaskGetTickCount
  .text.xTaskGetTickCountFromISR
-                0x00003a7c       0x20 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x00003a7c                xTaskGetTickCountFromISR
+                0x00003b00       0x20 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00003b00                xTaskGetTickCountFromISR
  .text.xTaskIncrementTick
-                0x00003a9c      0x14c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x00003a9c                xTaskIncrementTick
+                0x00003b20      0x14c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00003b20                xTaskIncrementTick
  .text.xTaskResumeAll
-                0x00003be8       0xfc src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x00003be8                xTaskResumeAll
+                0x00003c6c       0xfc src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00003c6c                xTaskResumeAll
  .text.prvIdleTask
-                0x00003ce4       0x7c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00003d68       0x7c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
  .text.vTaskSwitchContext
-                0x00003d60       0xa8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x00003d60                vTaskSwitchContext
+                0x00003de4       0xa8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00003de4                vTaskSwitchContext
  .text.vTaskSuspend
-                0x00003e08       0xcc src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x00003e08                vTaskSuspend
+                0x00003e8c       0xcc src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00003e8c                vTaskSuspend
  .text.vTaskPlaceOnEventList
-                0x00003ed4       0x50 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x00003ed4                vTaskPlaceOnEventList
+                0x00003f58       0x50 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00003f58                vTaskPlaceOnEventList
  .text.vTaskPlaceOnEventListRestricted
-                0x00003f24       0x64 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x00003f24                vTaskPlaceOnEventListRestricted
+                0x00003fa8       0x64 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00003fa8                vTaskPlaceOnEventListRestricted
  .text.xTaskRemoveFromEventList
-                0x00003f88       0x90 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x00003f88                xTaskRemoveFromEventList
+                0x0000400c       0x90 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x0000400c                xTaskRemoveFromEventList
  .text.vTaskSetTimeOutState
-                0x00004018       0x20 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x00004018                vTaskSetTimeOutState
+                0x0000409c       0x20 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x0000409c                vTaskSetTimeOutState
  .text.xTaskCheckForTimeOut
-                0x00004038       0x70 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x00004038                xTaskCheckForTimeOut
+                0x000040bc       0x70 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x000040bc                xTaskCheckForTimeOut
  .text.vTaskMissedYield
-                0x000040a8        0xc src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x000040a8                vTaskMissedYield
+                0x0000412c        0xc src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x0000412c                vTaskMissedYield
  .text.uxTaskGetTaskNumber
-                0x000040b4        0xc src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x000040b4                uxTaskGetTaskNumber
+                0x00004138        0xc src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00004138                uxTaskGetTaskNumber
  .text.xTaskGetCurrentTaskHandle
-                0x000040c0        0xc src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x000040c0                xTaskGetCurrentTaskHandle
+                0x00004144        0xc src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00004144                xTaskGetCurrentTaskHandle
  .text.xTaskGetSchedulerState
-                0x000040cc       0x1c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x000040cc                xTaskGetSchedulerState
+                0x00004150       0x1c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00004150                xTaskGetSchedulerState
  .text.vTaskPriorityInherit
-                0x000040e8       0xd4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x000040e8                vTaskPriorityInherit
+                0x0000416c       0xd4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x0000416c                vTaskPriorityInherit
  .text.vTaskPriorityDisinherit
-                0x000041bc       0xa8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
-                0x000041bc                vTaskPriorityDisinherit
+                0x00004240       0xa8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00004240                vTaskPriorityDisinherit
  .text.prvInsertTimerInActiveList
-                0x00004264       0x44 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
+                0x000042e8       0x44 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
  .text.prvCheckForValidListAndQueue
-                0x000042a8       0x58 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
+                0x0000432c       0x58 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
  .text.xTimerCreateTimerTask
-                0x00004300       0x4c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
-                0x00004300                xTimerCreateTimerTask
+                0x00004384       0x4c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
+                0x00004384                xTimerCreateTimerTask
  .text.xTimerCreate
-                0x0000434c       0x90 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
-                0x0000434c                xTimerCreate
+                0x000043d0       0x90 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
+                0x000043d0                xTimerCreate
  .text.xTimerGenericCommand
-                0x000043dc       0xf4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
-                0x000043dc                xTimerGenericCommand
+                0x00004460       0xf4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
+                0x00004460                xTimerGenericCommand
  .text.prvSampleTimeNow
-                0x000044d0       0xb4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
+                0x00004554       0xb4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
  .text.prvTimerTask
-                0x00004584      0x174 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
+                0x00004608      0x174 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
  .text.Dummy_Handler
-                0x000046f8        0x4 src/ASF/sam0/utils/cmsis/samd21/source/gcc/startup_samd21.o
-                0x000046f8                DMAC_Handler
-                0x000046f8                HardFault_Handler
-                0x000046f8                AC_Handler
-                0x000046f8                NMI_Handler
-                0x000046f8                ADC_Handler
-                0x000046f8                TCC1_Handler
-                0x000046f8                TCC0_Handler
-                0x000046f8                RTC_Handler
-                0x000046f8                EIC_Handler
-                0x000046f8                WDT_Handler
-                0x000046f8                TC4_Handler
-                0x000046f8                USB_Handler
-                0x000046f8                TC3_Handler
-                0x000046f8                Dummy_Handler
-                0x000046f8                PM_Handler
-                0x000046f8                TCC2_Handler
-                0x000046f8                EVSYS_Handler
-                0x000046f8                I2S_Handler
-                0x000046f8                NVMCTRL_Handler
-                0x000046f8                DAC_Handler
-                0x000046f8                PTC_Handler
-                0x000046f8                TC5_Handler
-                0x000046f8                SYSCTRL_Handler
+                0x0000477c        0x4 src/ASF/sam0/utils/cmsis/samd21/source/gcc/startup_samd21.o
+                0x0000477c                DMAC_Handler
+                0x0000477c                HardFault_Handler
+                0x0000477c                AC_Handler
+                0x0000477c                NMI_Handler
+                0x0000477c                ADC_Handler
+                0x0000477c                TCC1_Handler
+                0x0000477c                TCC0_Handler
+                0x0000477c                RTC_Handler
+                0x0000477c                EIC_Handler
+                0x0000477c                WDT_Handler
+                0x0000477c                TC4_Handler
+                0x0000477c                USB_Handler
+                0x0000477c                TC3_Handler
+                0x0000477c                Dummy_Handler
+                0x0000477c                PM_Handler
+                0x0000477c                TCC2_Handler
+                0x0000477c                EVSYS_Handler
+                0x0000477c                I2S_Handler
+                0x0000477c                NVMCTRL_Handler
+                0x0000477c                DAC_Handler
+                0x0000477c                PTC_Handler
+                0x0000477c                TC5_Handler
+                0x0000477c                SYSCTRL_Handler
  .text.Reset_Handler
-                0x000046fc       0xec src/ASF/sam0/utils/cmsis/samd21/source/gcc/startup_samd21.o
-                0x000046fc                Reset_Handler
+                0x00004780       0xec src/ASF/sam0/utils/cmsis/samd21/source/gcc/startup_samd21.o
+                0x00004780                Reset_Handler
  .text.system_clock_source_get_hz
-                0x000047e8       0x90 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
-                0x000047e8                system_clock_source_get_hz
+                0x0000486c       0x90 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
+                0x0000486c                system_clock_source_get_hz
  .text.system_clock_source_osc8m_set_config
-                0x00004878       0x3c src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
-                0x00004878                system_clock_source_osc8m_set_config
+                0x000048fc       0x3c src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
+                0x000048fc                system_clock_source_osc8m_set_config
  .text.system_clock_source_xosc32k_set_config
-                0x000048b4       0xb4 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
-                0x000048b4                system_clock_source_xosc32k_set_config
+                0x00004938       0xb4 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
+                0x00004938                system_clock_source_xosc32k_set_config
  .text.system_clock_source_dpll_set_config
-                0x00004968       0xa0 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
-                0x00004968                system_clock_source_dpll_set_config
+                0x000049ec       0xa0 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
+                0x000049ec                system_clock_source_dpll_set_config
  .text.system_clock_source_enable
-                0x00004a08       0xa8 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
-                0x00004a08                system_clock_source_enable
+                0x00004a8c       0xa8 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
+                0x00004a8c                system_clock_source_enable
  .text.system_clock_source_disable
-                0x00004ab0       0x7c src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
-                0x00004ab0                system_clock_source_disable
+                0x00004b34       0x7c src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
+                0x00004b34                system_clock_source_disable
  .text.system_clock_source_is_ready
-                0x00004b2c       0x54 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
-                0x00004b2c                system_clock_source_is_ready
+                0x00004bb0       0x54 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
+                0x00004bb0                system_clock_source_is_ready
  .text.system_clock_init
-                0x00004b80      0x144 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
-                0x00004b80                system_clock_init
+                0x00004c04      0x144 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
+                0x00004c04                system_clock_init
  .text.system_gclk_init
-                0x00004cc4       0x24 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
-                0x00004cc4                system_gclk_init
+                0x00004d48       0x24 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
+                0x00004d48                system_gclk_init
  .text.system_gclk_gen_set_config
-                0x00004ce8       0xb4 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
-                0x00004ce8                system_gclk_gen_set_config
+                0x00004d6c       0xb4 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
+                0x00004d6c                system_gclk_gen_set_config
  .text.system_gclk_gen_enable
-                0x00004d9c       0x44 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
-                0x00004d9c                system_gclk_gen_enable
+                0x00004e20       0x44 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
+                0x00004e20                system_gclk_gen_enable
  .text.system_gclk_gen_get_hz
-                0x00004de0       0x8c src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
-                0x00004de0                system_gclk_gen_get_hz
+                0x00004e64       0x8c src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
+                0x00004e64                system_gclk_gen_get_hz
  .text.system_gclk_chan_enable
-                0x00004e6c       0x30 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
-                0x00004e6c                system_gclk_chan_enable
+                0x00004ef0       0x30 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
+                0x00004ef0                system_gclk_chan_enable
  .text.system_gclk_chan_disable
-                0x00004e9c       0x5c src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
-                0x00004e9c                system_gclk_chan_disable
+                0x00004f20       0x5c src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
+                0x00004f20                system_gclk_chan_disable
  .text.system_gclk_chan_set_config
-                0x00004ef8       0x1c src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
-                0x00004ef8                system_gclk_chan_set_config
+                0x00004f7c       0x1c src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
+                0x00004f7c                system_gclk_chan_set_config
  .text.system_gclk_chan_get_hz
-                0x00004f14       0x34 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
-                0x00004f14                system_gclk_chan_get_hz
+                0x00004f98       0x34 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
+                0x00004f98                system_gclk_chan_get_hz
  .text._system_dummy_init
-                0x00004f48        0x4 src/ASF/sam0/drivers/system/system.o
-                0x00004f48                _system_extint_init
-                0x00004f48                system_board_init
-                0x00004f48                _system_events_init
-                0x00004f48                _system_dummy_init
-                0x00004f48                _system_divas_init
+                0x00004fcc        0x4 src/ASF/sam0/drivers/system/system.o
+                0x00004fcc                _system_extint_init
+                0x00004fcc                system_board_init
+                0x00004fcc                _system_events_init
+                0x00004fcc                _system_dummy_init
+                0x00004fcc                _system_divas_init
  .text.system_init
-                0x00004f4c       0x2c src/ASF/sam0/drivers/system/system.o
-                0x00004f4c                system_init
+                0x00004fd0       0x2c src/ASF/sam0/drivers/system/system.o
+                0x00004fd0                system_init
  .text.cpu_irq_enter_critical
-                0x00004f78       0x3c src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
-                0x00004f78                cpu_irq_enter_critical
+                0x00004ffc       0x3c src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+                0x00004ffc                cpu_irq_enter_critical
  .text.cpu_irq_leave_critical
-                0x00004fb4       0x2c src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
-                0x00004fb4                cpu_irq_leave_critical
+                0x00005038       0x2c src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+                0x00005038                cpu_irq_leave_critical
  .text.port_pin_set_config
-                0x00004fe0       0x24 src/ASF/sam0/drivers/port/port.o
-                0x00004fe0                port_pin_set_config
+                0x00005064       0x24 src/ASF/sam0/drivers/port/port.o
+                0x00005064                port_pin_set_config
  .text._system_pinmux_config
-                0x00005004       0x8c src/ASF/sam0/drivers/system/pinmux/pinmux.o
+                0x00005088       0x8c src/ASF/sam0/drivers/system/pinmux/pinmux.o
  .text.system_pinmux_pin_set_config
-                0x00005090       0x2c src/ASF/sam0/drivers/system/pinmux/pinmux.o
-                0x00005090                system_pinmux_pin_set_config
- .text          0x000050bc       0x9c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
-                0x000050bc                __aeabi_uidiv
-                0x000050bc                __udivsi3
-                0x00005144                __aeabi_uidivmod
- .text          0x00005158        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
-                0x00005158                __aeabi_idiv0
-                0x00005158                __aeabi_ldiv0
- .text          0x0000515c       0x44 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_muldi3.o)
-                0x0000515c                __muldi3
-                0x0000515c                __aeabi_lmul
- .text          0x000051a0      0x118 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(truncdfsf2.o)
-                0x000051a0                __aeabi_d2f
+                0x00005114       0x2c src/ASF/sam0/drivers/system/pinmux/pinmux.o
+                0x00005114                system_pinmux_pin_set_config
+ .text          0x00005140       0x9c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
+                0x00005140                __aeabi_uidiv
+                0x00005140                __udivsi3
+                0x000051c8                __aeabi_uidivmod
+ .text          0x000051dc        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x000051dc                __aeabi_idiv0
+                0x000051dc                __aeabi_ldiv0
+ .text          0x000051e0       0x44 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_muldi3.o)
+                0x000051e0                __muldi3
+                0x000051e0                __aeabi_lmul
+ .text          0x00005224      0x118 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(truncdfsf2.o)
+                0x00005224                __aeabi_d2f
  .text.__libc_init_array
-                0x000052b8       0x48 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-init.o)
-                0x000052b8                __libc_init_array
- .text.memcpy   0x00005300       0x84 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-memcpy-stub.o)
-                0x00005300                memcpy
- .text.memset   0x00005384       0x9c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-memset.o)
-                0x00005384                memset
- .text.strncmp  0x00005420       0xb8 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-strncmp.o)
-                0x00005420                strncmp
- .text.strncpy  0x000054d8       0x74 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-strncpy.o)
-                0x000054d8                strncpy
+                0x0000533c       0x48 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-init.o)
+                0x0000533c                __libc_init_array
+ .text.memcpy   0x00005384       0x84 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-memcpy-stub.o)
+                0x00005384                memcpy
+ .text.memset   0x00005408       0x9c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-memset.o)
+                0x00005408                memset
+ .text.strncmp  0x000054a4       0xb8 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-strncmp.o)
+                0x000054a4                strncmp
+ .text.strncpy  0x0000555c       0x74 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-strncpy.o)
+                0x0000555c                strncpy
  .text.startup.register_fini
-                0x0000554c       0x18 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-__call_atexit.o)
- .text.atexit   0x00005564       0x10 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-atexit.o)
-                0x00005564                atexit
+                0x000055d0       0x18 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-__call_atexit.o)
+ .text.atexit   0x000055e8       0x10 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-atexit.o)
+                0x000055e8                atexit
  .text.__libc_fini_array
-                0x00005574       0x30 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-fini.o)
-                0x00005574                __libc_fini_array
+                0x000055f8       0x30 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-fini.o)
+                0x000055f8                __libc_fini_array
  .text.__register_exitproc
-                0x000055a4       0xc0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-__atexit.o)
-                0x000055a4                __register_exitproc
+                0x00005628       0xc0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-__atexit.o)
+                0x00005628                __register_exitproc
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
  *(.glue_7)
  .glue_7        0x00000000        0x0 linker stubs
  *(.rodata .rodata* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x00005664       0x35 Bastian_freeRTOS-TRACE.o
+                0x000056e8       0x35 Bastian_freeRTOS-TRACE.o
                                  0x38 (size before relaxing)
- *fill*         0x00005699        0x3 
- .rodata        0x0000569c       0x10 src/ASF/sam0/drivers/sercom/sercom.o
+ *fill*         0x0000571d        0x3 
+ .rodata        0x00005720       0x10 src/ASF/sam0/drivers/sercom/sercom.o
  .rodata.str1.4
-                0x000056ac       0x4c src/Peripherals/bastian_sercom.o
- .rodata        0x000056f8        0x4 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
- .rodata        0x000056fc       0x1c src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x00005730       0x34 src/Peripherals/bastian_sercom.o
+ .rodata        0x00005764        0x4 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+ .rodata        0x00005768       0x1c src/ASF/thirdparty/freertos/trace/trcBase.o
  .rodata.str1.4
-                0x00005718      0x56f src/ASF/thirdparty/freertos/trace/trcBase.o
+                0x00005784      0x56f src/ASF/thirdparty/freertos/trace/trcBase.o
                                 0x570 (size before relaxing)
- *fill*         0x00005c87        0x1 
+ *fill*         0x00005cf3        0x1 
  .rodata.str1.4
-                0x00005c88      0x71a src/ASF/thirdparty/freertos/trace/trcKernel.o
+                0x00005cf4      0x71a src/ASF/thirdparty/freertos/trace/trcKernel.o
                                 0x71c (size before relaxing)
- *fill*         0x000063a2        0x2 
- .rodata        0x000063a4       0x38 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
+ *fill*         0x0000640e        0x2 
+ .rodata        0x00006410       0x38 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
  .rodata.str1.4
-                0x000063dc      0x298 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
- .rodata        0x00006674       0x84 src/ASF/thirdparty/freertos/trace/trcUser.o
+                0x00006448      0x298 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
+ .rodata        0x000066e0       0x84 src/ASF/thirdparty/freertos/trace/trcUser.o
  .rodata.str1.4
-                0x000066f8      0x331 src/ASF/thirdparty/freertos/trace/trcUser.o
+                0x00006764      0x331 src/ASF/thirdparty/freertos/trace/trcUser.o
                                 0x334 (size before relaxing)
- *fill*         0x00006a29        0x3 
+ *fill*         0x00006a95        0x3 
  .rodata.str1.4
-                0x00006a2c        0x5 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+                0x00006a98        0x5 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
                                   0x8 (size before relaxing)
- *fill*         0x00006a31        0x3 
- .rodata        0x00006a34       0x28 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
+ *fill*         0x00006a9d        0x3 
+ .rodata        0x00006aa0       0x28 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
  .rodata.str1.4
-                0x00006a5c        0x8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
- .rodata        0x00006a64       0x90 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
+                0x00006ac8        0x8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
+ .rodata        0x00006ad0       0x90 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
  .rodata.str1.4
-                0x00006af4        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-impure.o)
+                0x00006b60        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-impure.o)
  .rodata._global_impure_ptr
-                0x00006af8        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-impure.o)
-                0x00006af8                _global_impure_ptr
+                0x00006b64        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-impure.o)
+                0x00006b64                _global_impure_ptr
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00006afc                . = ALIGN (0x4)
+                0x00006b68                . = ALIGN (0x4)
  *(.init)
- .init          0x00006afc        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
-                0x00006afc                _init
- .init          0x00006b00        0x8 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
-                0x00006b08                . = ALIGN (0x4)
-                0x00006b08                __preinit_array_start = .
+ .init          0x00006b68        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
+                0x00006b68                _init
+ .init          0x00006b6c        0x8 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
+                0x00006b74                . = ALIGN (0x4)
+                0x00006b74                __preinit_array_start = .
  *(.preinit_array)
-                0x00006b08                __preinit_array_end = .
-                0x00006b08                . = ALIGN (0x4)
-                0x00006b08                __init_array_start = .
+                0x00006b74                __preinit_array_end = .
+                0x00006b74                . = ALIGN (0x4)
+                0x00006b74                __init_array_start = .
  *(SORT(.init_array.*))
  .init_array.00000
-                0x00006b08        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-__call_atexit.o)
+                0x00006b74        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-__call_atexit.o)
  *(.init_array)
- .init_array    0x00006b0c        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
-                0x00006b10                __init_array_end = .
-                0x00006b10                . = ALIGN (0x4)
+ .init_array    0x00006b78        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+                0x00006b7c                __init_array_end = .
+                0x00006b7c                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x00006b10                . = ALIGN (0x4)
+                0x00006b7c                . = ALIGN (0x4)
  *(.fini)
- .fini          0x00006b10        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
-                0x00006b10                _fini
- .fini          0x00006b14        0x8 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
-                0x00006b1c                . = ALIGN (0x4)
-                0x00006b1c                __fini_array_start = .
+ .fini          0x00006b7c        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
+                0x00006b7c                _fini
+ .fini          0x00006b80        0x8 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
+                0x00006b88                . = ALIGN (0x4)
+                0x00006b88                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x00006b1c        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+ .fini_array    0x00006b88        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x00006b20                __fini_array_end = .
+                0x00006b8c                __fini_array_end = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x00006b20                . = ALIGN (0x4)
-                0x00006b20                _efixed = .
-                0x00006b20                PROVIDE (__exidx_start, .)
+                0x00006b8c                . = ALIGN (0x4)
+                0x00006b8c                _efixed = .
+                0x00006b8c                PROVIDE (__exidx_start, .)
 
-.vfp11_veneer   0x00006b20        0x0
+.vfp11_veneer   0x00006b8c        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x00006b20        0x0
+.v4_bx          0x00006b8c        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x00006b20        0x0
+.iplt           0x00006b8c        0x0
  .iplt          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
-.eh_frame       0x00006b20        0x0
- .eh_frame      0x00006b20        0x0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+.eh_frame       0x00006b8c        0x0
+ .eh_frame      0x00006b8c        0x0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
-.rel.dyn        0x00006b20        0x0
+.rel.dyn        0x00006b8c        0x0
  .rel.iplt      0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
-.jcr            0x00006b20        0x0
- .jcr           0x00006b20        0x0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+.jcr            0x00006b8c        0x0
+ .jcr           0x00006b8c        0x0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
-.igot.plt       0x00006b20        0x0
+.igot.plt       0x00006b8c        0x0
  .igot.plt      0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00006b20                PROVIDE (__exidx_end, .)
-                0x00006b20                . = ALIGN (0x4)
-                0x00006b20                _etext = .
+                0x00006b8c                PROVIDE (__exidx_end, .)
+                0x00006b8c                . = ALIGN (0x4)
+                0x00006b8c                _etext = .
 
-.relocate       0x20000000      0x448 load address 0x00006b20
+.relocate       0x20000000      0x448 load address 0x00006b8c
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _srelocate = .
  *(.ramfunc .ramfunc.*)
@@ -1813,7 +1813,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gn
                 0x20000448                . = ALIGN (0x4)
                 0x20000448                _erelocate = .
 
-.bss            0x20000448     0x2ab4 load address 0x00006f68
+.bss            0x20000448     0x2ab4 load address 0x00006fd4
                 0x20000448                . = ALIGN (0x4)
                 0x20000448                _sbss = .
                 0x20000448                _szero = .
@@ -1871,7 +1871,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gn
                 0x20002efc                _ebss = .
                 0x20002efc                _ezero = .
 
-.stack          0x20002efc     0x2004 load address 0x00009a1c
+.stack          0x20002efc     0x2004 load address 0x00009a88
                 0x20002f00                . = ALIGN (0x8)
  *fill*         0x20002efc        0x4 
                 0x20002f00                _sstack = .
@@ -1995,31 +1995,31 @@ OUTPUT(Bastian_freeRTOS-TRACE.elf elf32-littlearm)
  .comment       0x00000000       0x5c src/ASF/sam0/drivers/port/port.o
  .comment       0x00000000       0x5c src/ASF/sam0/drivers/system/pinmux/pinmux.o
 
-.debug_info     0x00000000    0x23a67
- .debug_info    0x00000000     0x3088 Bastian_freeRTOS-TRACE.o
- .debug_info    0x00003088     0x252d src/ASF/sam0/drivers/sercom/sercom.o
- .debug_info    0x000055b5     0x3448 src/Peripherals/bastian_sercom.o
- .debug_info    0x000089fd     0x22b9 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
- .debug_info    0x0000acb6     0x4145 src/ASF/sam0/drivers/sercom/usart/usart.o
- .debug_info    0x0000edfb     0x2777 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
- .debug_info    0x00011572      0xf9e src/ASF/thirdparty/freertos/trace/trcBase.o
- .debug_info    0x00012510      0x153 src/ASF/thirdparty/freertos/trace/trcHardwarePort.o
- .debug_info    0x00012663     0x124e src/ASF/thirdparty/freertos/trace/trcKernel.o
- .debug_info    0x000138b1      0x864 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
- .debug_info    0x00014115     0x12e5 src/ASF/thirdparty/freertos/trace/trcUser.o
- .debug_info    0x000153fa      0x2d0 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
- .debug_info    0x000156ca      0x2d5 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
- .debug_info    0x0001599f      0x1a3 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.o
- .debug_info    0x00015b42     0x1c6b src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
- .debug_info    0x000177ad     0x1f5c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
- .debug_info    0x00019709      0xd2e src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
- .debug_info    0x0001a437     0x3a6e src/ASF/sam0/utils/cmsis/samd21/source/gcc/startup_samd21.o
- .debug_info    0x0001dea5     0x2f70 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
- .debug_info    0x00020e15     0x154f src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
- .debug_info    0x00022364      0x176 src/ASF/sam0/drivers/system/system.o
- .debug_info    0x000224da      0x1e8 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_info    0x000226c2      0x962 src/ASF/sam0/drivers/port/port.o
- .debug_info    0x00023024      0xa43 src/ASF/sam0/drivers/system/pinmux/pinmux.o
+.debug_info     0x00000000    0x23b70
+ .debug_info    0x00000000     0x30aa Bastian_freeRTOS-TRACE.o
+ .debug_info    0x000030aa     0x252d src/ASF/sam0/drivers/sercom/sercom.o
+ .debug_info    0x000055d7     0x352f src/Peripherals/bastian_sercom.o
+ .debug_info    0x00008b06     0x22b9 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+ .debug_info    0x0000adbf     0x4145 src/ASF/sam0/drivers/sercom/usart/usart.o
+ .debug_info    0x0000ef04     0x2777 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
+ .debug_info    0x0001167b      0xf9e src/ASF/thirdparty/freertos/trace/trcBase.o
+ .debug_info    0x00012619      0x153 src/ASF/thirdparty/freertos/trace/trcHardwarePort.o
+ .debug_info    0x0001276c     0x124e src/ASF/thirdparty/freertos/trace/trcKernel.o
+ .debug_info    0x000139ba      0x864 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
+ .debug_info    0x0001421e     0x12e5 src/ASF/thirdparty/freertos/trace/trcUser.o
+ .debug_info    0x00015503      0x2d0 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
+ .debug_info    0x000157d3      0x2d5 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+ .debug_info    0x00015aa8      0x1a3 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.o
+ .debug_info    0x00015c4b     0x1c6b src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+ .debug_info    0x000178b6     0x1f5c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+ .debug_info    0x00019812      0xd2e src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
+ .debug_info    0x0001a540     0x3a6e src/ASF/sam0/utils/cmsis/samd21/source/gcc/startup_samd21.o
+ .debug_info    0x0001dfae     0x2f70 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
+ .debug_info    0x00020f1e     0x154f src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
+ .debug_info    0x0002246d      0x176 src/ASF/sam0/drivers/system/system.o
+ .debug_info    0x000225e3      0x1e8 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_info    0x000227cb      0x962 src/ASF/sam0/drivers/port/port.o
+ .debug_info    0x0002312d      0xa43 src/ASF/sam0/drivers/system/pinmux/pinmux.o
 
 .debug_abbrev   0x00000000     0x38d7
  .debug_abbrev  0x00000000      0x32a Bastian_freeRTOS-TRACE.o
@@ -2047,31 +2047,31 @@ OUTPUT(Bastian_freeRTOS-TRACE.elf elf32-littlearm)
  .debug_abbrev  0x0000347c      0x1d7 src/ASF/sam0/drivers/port/port.o
  .debug_abbrev  0x00003653      0x284 src/ASF/sam0/drivers/system/pinmux/pinmux.o
 
-.debug_loc      0x00000000     0xa91f
+.debug_loc      0x00000000     0xa9a1
  .debug_loc     0x00000000      0x1d0 Bastian_freeRTOS-TRACE.o
  .debug_loc     0x000001d0      0x8d4 src/ASF/sam0/drivers/sercom/sercom.o
- .debug_loc     0x00000aa4      0x231 src/Peripherals/bastian_sercom.o
- .debug_loc     0x00000cd5      0x170 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
- .debug_loc     0x00000e45      0xe95 src/ASF/sam0/drivers/sercom/usart/usart.o
- .debug_loc     0x00001cda      0x579 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
- .debug_loc     0x00002253      0xf5c src/ASF/thirdparty/freertos/trace/trcBase.o
- .debug_loc     0x000031af       0x95 src/ASF/thirdparty/freertos/trace/trcHardwarePort.o
- .debug_loc     0x00003244      0xf4a src/ASF/thirdparty/freertos/trace/trcKernel.o
- .debug_loc     0x0000418e      0x2f9 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
- .debug_loc     0x00004487     0x14c3 src/ASF/thirdparty/freertos/trace/trcUser.o
- .debug_loc     0x0000594a       0x85 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
- .debug_loc     0x000059cf      0x113 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
- .debug_loc     0x00005ae2       0x7f src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.o
- .debug_loc     0x00005b61     0x15ee src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
- .debug_loc     0x0000714f     0x1393 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
- .debug_loc     0x000084e2      0xa0a src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
- .debug_loc     0x00008eec       0x7c src/ASF/sam0/utils/cmsis/samd21/source/gcc/startup_samd21.o
- .debug_loc     0x00008f68     0x1021 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
- .debug_loc     0x00009f89      0x508 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
- .debug_loc     0x0000a491       0x20 src/ASF/sam0/drivers/system/system.o
- .debug_loc     0x0000a4b1       0x1e src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_loc     0x0000a4cf      0x16d src/ASF/sam0/drivers/port/port.o
- .debug_loc     0x0000a63c      0x2e3 src/ASF/sam0/drivers/system/pinmux/pinmux.o
+ .debug_loc     0x00000aa4      0x2b3 src/Peripherals/bastian_sercom.o
+ .debug_loc     0x00000d57      0x170 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+ .debug_loc     0x00000ec7      0xe95 src/ASF/sam0/drivers/sercom/usart/usart.o
+ .debug_loc     0x00001d5c      0x579 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
+ .debug_loc     0x000022d5      0xf5c src/ASF/thirdparty/freertos/trace/trcBase.o
+ .debug_loc     0x00003231       0x95 src/ASF/thirdparty/freertos/trace/trcHardwarePort.o
+ .debug_loc     0x000032c6      0xf4a src/ASF/thirdparty/freertos/trace/trcKernel.o
+ .debug_loc     0x00004210      0x2f9 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
+ .debug_loc     0x00004509     0x14c3 src/ASF/thirdparty/freertos/trace/trcUser.o
+ .debug_loc     0x000059cc       0x85 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
+ .debug_loc     0x00005a51      0x113 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+ .debug_loc     0x00005b64       0x7f src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.o
+ .debug_loc     0x00005be3     0x15ee src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+ .debug_loc     0x000071d1     0x1393 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+ .debug_loc     0x00008564      0xa0a src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
+ .debug_loc     0x00008f6e       0x7c src/ASF/sam0/utils/cmsis/samd21/source/gcc/startup_samd21.o
+ .debug_loc     0x00008fea     0x1021 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
+ .debug_loc     0x0000a00b      0x508 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
+ .debug_loc     0x0000a513       0x20 src/ASF/sam0/drivers/system/system.o
+ .debug_loc     0x0000a533       0x1e src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_loc     0x0000a551      0x16d src/ASF/sam0/drivers/port/port.o
+ .debug_loc     0x0000a6be      0x2e3 src/ASF/sam0/drivers/system/pinmux/pinmux.o
 
 .debug_aranges  0x00000000      0x9a8
  .debug_aranges
@@ -2149,31 +2149,31 @@ OUTPUT(Bastian_freeRTOS-TRACE.elf elf32-littlearm)
  .debug_ranges  0x00000a20       0x18 src/ASF/sam0/drivers/port/port.o
  .debug_ranges  0x00000a38       0x28 src/ASF/sam0/drivers/system/pinmux/pinmux.o
 
-.debug_line     0x00000000     0x6ab5
- .debug_line    0x00000000      0x632 Bastian_freeRTOS-TRACE.o
- .debug_line    0x00000632      0x3e7 src/ASF/sam0/drivers/sercom/sercom.o
- .debug_line    0x00000a19      0x682 src/Peripherals/bastian_sercom.o
- .debug_line    0x0000109b      0x3b0 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
- .debug_line    0x0000144b      0x5eb src/ASF/sam0/drivers/sercom/usart/usart.o
- .debug_line    0x00001a36      0x4c3 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
- .debug_line    0x00001ef9      0x4e4 src/ASF/thirdparty/freertos/trace/trcBase.o
- .debug_line    0x000023dd      0x185 src/ASF/thirdparty/freertos/trace/trcHardwarePort.o
- .debug_line    0x00002562      0x40d src/ASF/thirdparty/freertos/trace/trcKernel.o
- .debug_line    0x0000296f      0x30c src/ASF/thirdparty/freertos/trace/trcKernelPort.o
- .debug_line    0x00002c7b      0x5ad src/ASF/thirdparty/freertos/trace/trcUser.o
- .debug_line    0x00003228      0x27f src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
- .debug_line    0x000034a7      0x2f4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
- .debug_line    0x0000379b      0x25d src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.o
- .debug_line    0x000039f8      0x874 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
- .debug_line    0x0000426c      0xa72 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
- .debug_line    0x00004cde      0x40d src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
- .debug_line    0x000050eb      0x331 src/ASF/sam0/utils/cmsis/samd21/source/gcc/startup_samd21.o
- .debug_line    0x0000541c      0x5bf src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
- .debug_line    0x000059db      0x62f src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
- .debug_line    0x0000600a      0x1d2 src/ASF/sam0/drivers/system/system.o
- .debug_line    0x000061dc      0x279 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_line    0x00006455      0x321 src/ASF/sam0/drivers/port/port.o
- .debug_line    0x00006776      0x33f src/ASF/sam0/drivers/system/pinmux/pinmux.o
+.debug_line     0x00000000     0x6aea
+ .debug_line    0x00000000      0x629 Bastian_freeRTOS-TRACE.o
+ .debug_line    0x00000629      0x3e7 src/ASF/sam0/drivers/sercom/sercom.o
+ .debug_line    0x00000a10      0x6c0 src/Peripherals/bastian_sercom.o
+ .debug_line    0x000010d0      0x3b0 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+ .debug_line    0x00001480      0x5eb src/ASF/sam0/drivers/sercom/usart/usart.o
+ .debug_line    0x00001a6b      0x4c3 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
+ .debug_line    0x00001f2e      0x4e4 src/ASF/thirdparty/freertos/trace/trcBase.o
+ .debug_line    0x00002412      0x185 src/ASF/thirdparty/freertos/trace/trcHardwarePort.o
+ .debug_line    0x00002597      0x40d src/ASF/thirdparty/freertos/trace/trcKernel.o
+ .debug_line    0x000029a4      0x30c src/ASF/thirdparty/freertos/trace/trcKernelPort.o
+ .debug_line    0x00002cb0      0x5ad src/ASF/thirdparty/freertos/trace/trcUser.o
+ .debug_line    0x0000325d      0x27f src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
+ .debug_line    0x000034dc      0x2f4 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+ .debug_line    0x000037d0      0x25d src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.o
+ .debug_line    0x00003a2d      0x874 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+ .debug_line    0x000042a1      0xa72 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+ .debug_line    0x00004d13      0x40d src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
+ .debug_line    0x00005120      0x331 src/ASF/sam0/utils/cmsis/samd21/source/gcc/startup_samd21.o
+ .debug_line    0x00005451      0x5bf src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
+ .debug_line    0x00005a10      0x62f src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
+ .debug_line    0x0000603f      0x1d2 src/ASF/sam0/drivers/system/system.o
+ .debug_line    0x00006211      0x279 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_line    0x0000648a      0x321 src/ASF/sam0/drivers/port/port.o
+ .debug_line    0x000067ab      0x33f src/ASF/sam0/drivers/system/pinmux/pinmux.o
 
 .debug_str      0x00000000     0x79f4
  .debug_str     0x00000000     0x1454 Bastian_freeRTOS-TRACE.o
@@ -2181,7 +2181,7 @@ OUTPUT(Bastian_freeRTOS-TRACE.elf elf32-littlearm)
  .debug_str     0x00001454      0x386 src/ASF/sam0/drivers/sercom/sercom.o
                                0x10d9 (size before relaxing)
  .debug_str     0x000017da      0x9f1 src/Peripherals/bastian_sercom.o
-                               0x1e8b (size before relaxing)
+                               0x1ea4 (size before relaxing)
  .debug_str     0x000021cb       0xf6 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
                                 0xf45 (size before relaxing)
  .debug_str     0x000022c1      0x6c0 src/ASF/sam0/drivers/sercom/usart/usart.o
@@ -2225,40 +2225,40 @@ OUTPUT(Bastian_freeRTOS-TRACE.elf elf32-littlearm)
  .debug_str     0x000078c4      0x130 src/ASF/sam0/drivers/system/pinmux/pinmux.o
                                 0x6cb (size before relaxing)
 
-.debug_frame    0x00000000     0x1bb4
+.debug_frame    0x00000000     0x1bb8
  .debug_frame   0x00000000       0x80 Bastian_freeRTOS-TRACE.o
  .debug_frame   0x00000080       0xa0 src/ASF/sam0/drivers/sercom/sercom.o
- .debug_frame   0x00000120       0x64 src/Peripherals/bastian_sercom.o
- .debug_frame   0x00000184       0xb8 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
- .debug_frame   0x0000023c       0xc0 src/ASF/sam0/drivers/sercom/usart/usart.o
- .debug_frame   0x000002fc      0x110 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
- .debug_frame   0x0000040c      0x1c4 src/ASF/thirdparty/freertos/trace/trcBase.o
- .debug_frame   0x000005d0       0x2c src/ASF/thirdparty/freertos/trace/trcHardwarePort.o
- .debug_frame   0x000005fc      0x198 src/ASF/thirdparty/freertos/trace/trcKernel.o
- .debug_frame   0x00000794      0x108 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
- .debug_frame   0x0000089c      0x230 src/ASF/thirdparty/freertos/trace/trcUser.o
- .debug_frame   0x00000acc       0x6c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
- .debug_frame   0x00000b38      0x108 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
- .debug_frame   0x00000c40       0x5c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.o
- .debug_frame   0x00000c9c      0x378 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
- .debug_frame   0x00001014      0x410 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
- .debug_frame   0x00001424      0x144 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
- .debug_frame   0x00001568       0x3c src/ASF/sam0/utils/cmsis/samd21/source/gcc/startup_samd21.o
- .debug_frame   0x000015a4      0x154 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
- .debug_frame   0x000016f8      0x14c src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
- .debug_frame   0x00001844       0x38 src/ASF/sam0/drivers/system/system.o
- .debug_frame   0x0000187c       0x30 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_frame   0x000018ac       0x44 src/ASF/sam0/drivers/port/port.o
- .debug_frame   0x000018f0       0x7c src/ASF/sam0/drivers/system/pinmux/pinmux.o
- .debug_frame   0x0000196c       0x20 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
- .debug_frame   0x0000198c       0x30 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_muldi3.o)
- .debug_frame   0x000019bc       0x30 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(truncdfsf2.o)
- .debug_frame   0x000019ec       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-init.o)
- .debug_frame   0x00001a18       0x30 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-memcpy-stub.o)
- .debug_frame   0x00001a48       0x30 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-memset.o)
- .debug_frame   0x00001a78       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-strncmp.o)
- .debug_frame   0x00001aa4       0x30 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-strncpy.o)
- .debug_frame   0x00001ad4       0x54 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-__call_atexit.o)
- .debug_frame   0x00001b28       0x28 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-atexit.o)
- .debug_frame   0x00001b50       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-fini.o)
- .debug_frame   0x00001b7c       0x38 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-__atexit.o)
+ .debug_frame   0x00000120       0x68 src/Peripherals/bastian_sercom.o
+ .debug_frame   0x00000188       0xb8 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+ .debug_frame   0x00000240       0xc0 src/ASF/sam0/drivers/sercom/usart/usart.o
+ .debug_frame   0x00000300      0x110 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
+ .debug_frame   0x00000410      0x1c4 src/ASF/thirdparty/freertos/trace/trcBase.o
+ .debug_frame   0x000005d4       0x2c src/ASF/thirdparty/freertos/trace/trcHardwarePort.o
+ .debug_frame   0x00000600      0x198 src/ASF/thirdparty/freertos/trace/trcKernel.o
+ .debug_frame   0x00000798      0x108 src/ASF/thirdparty/freertos/trace/trcKernelPort.o
+ .debug_frame   0x000008a0      0x230 src/ASF/thirdparty/freertos/trace/trcUser.o
+ .debug_frame   0x00000ad0       0x6c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
+ .debug_frame   0x00000b3c      0x108 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+ .debug_frame   0x00000c44       0x5c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.o
+ .debug_frame   0x00000ca0      0x378 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+ .debug_frame   0x00001018      0x410 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+ .debug_frame   0x00001428      0x144 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
+ .debug_frame   0x0000156c       0x3c src/ASF/sam0/utils/cmsis/samd21/source/gcc/startup_samd21.o
+ .debug_frame   0x000015a8      0x154 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
+ .debug_frame   0x000016fc      0x14c src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
+ .debug_frame   0x00001848       0x38 src/ASF/sam0/drivers/system/system.o
+ .debug_frame   0x00001880       0x30 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_frame   0x000018b0       0x44 src/ASF/sam0/drivers/port/port.o
+ .debug_frame   0x000018f4       0x7c src/ASF/sam0/drivers/system/pinmux/pinmux.o
+ .debug_frame   0x00001970       0x20 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00001990       0x30 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_muldi3.o)
+ .debug_frame   0x000019c0       0x30 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(truncdfsf2.o)
+ .debug_frame   0x000019f0       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-init.o)
+ .debug_frame   0x00001a1c       0x30 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00001a4c       0x30 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-memset.o)
+ .debug_frame   0x00001a7c       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-strncmp.o)
+ .debug_frame   0x00001aa8       0x30 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-strncpy.o)
+ .debug_frame   0x00001ad8       0x54 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x00001b2c       0x28 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-atexit.o)
+ .debug_frame   0x00001b54       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-fini.o)
+ .debug_frame   0x00001b80       0x38 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a(lib_a-__atexit.o)

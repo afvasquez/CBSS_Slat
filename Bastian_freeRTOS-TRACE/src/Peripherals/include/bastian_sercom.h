@@ -15,7 +15,7 @@
 #define IRDA_SLAT_PING		(( uint8_t ) 0x01 )
 #define IRDA_SLAT_PRE_PING		(( uint8_t ) 0x11 )
 #define IRDA_SLAT_FIRST		(( uint8_t ) 0x02 )
-#define IRDA_SLAT_CONFIRM		(( uint8_t ) 0x03 )
+#define IRDA_SLAT_FIRST_RESPONSE		(( uint8_t ) 0x03 )
 #define IRDA_SLAT_RESET		(( uint8_t ) 0x0E )
 
 

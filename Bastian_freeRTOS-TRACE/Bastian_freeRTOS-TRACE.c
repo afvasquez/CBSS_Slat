@@ -99,8 +99,7 @@ void irda_communication_task(void) {
 			case IRDA_SLAT_PING:
 				irda_timed_out = pdFALSE;
 			
-				// Set the ERROR LED to indicate the start of an Rx, sampling sequence
-				port_pin_set_output_level(LED_ERROR, pdTRUE);
+				
 				
 				// Start the necessary timers 
 				//vTracePrintF(event_channel, "Rx Request.");
@@ -121,6 +120,7 @@ void irda_communication_task(void) {
 				vTracePrintF(event_channel, "Send Resp.");
 				
 				// Send this data now
+				xTimerReset( timer_IrDA_Ping, 0 );
 				usart_write_buffer_job(&irda_master, irda_tx_array, 5);
 			break;
 			//case IRDA_SLAT_FIRST_RESPONSE:	// This is the action taken for
@@ -156,11 +156,17 @@ void timer_irda_ping_callback(TimerHandle_t pxTimer)
 	configASSERT( pxTimer );
 	
 	switch ( irda_comm_state ) {
+			// r010716-1608: IRDA_SLAT_FIRST_RESPONSE T.O. code
+		case IRDA_SLAT_FIRST_RESPONSE:
+			irda_comm_state = IRDA_SLAT_PING;	// Go back to the Ping Mode
 		case IRDA_SLAT_PING:
 			irda_timed_out = pdTRUE;
 			
 			vTracePrintF(event_channel, "Ping TO!");
+			// Set the ERROR LED to indicate the start of an Rx, sampling sequence
 			port_pin_set_output_level(LED_ERROR, pdFALSE);
+			
+			port_pin_set_output_level(LED_BUSY, pdFALSE);
 			// There was no significant response to the ping,
 			// Reset accordingly
 			usart_abort_job( &irda_master, USART_TRANSCEIVER_RX );
