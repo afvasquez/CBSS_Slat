@@ -132,24 +132,15 @@ static void irda_master_callback_transmitted(const struct usart_module *const mo
 			
 			port_pin_set_output_level(LED_BUSY, pdFALSE);
 			
-			xYieldRequired = xTaskResumeFromISR( irda_task_handler );
+			//xYieldRequired = xTaskResumeFromISR( irda_task_handler );
 			
-			if( xYieldRequired == pdTRUE )
-			{
+			//if( xYieldRequired == pdTRUE )
+			//{
 				// We should switch context so the ISR returns to a different task.
 				// NOTE:  How this is done depends on the port you are using.  Check
 				// the documentation and examples for your port.
-				portYIELD_FROM_ISR(xYieldRequired);
-			}
+			//	portYIELD_FROM_ISR(xYieldRequired);
+			//}
 		break;
-//<<<<<<< HEAD
-		//case IRDA_SLAT_FIRST_RESPONSE:
-			// Read this data now
-		//	usart_read_buffer_job(&irda_master, irda_rx_array, 5);
-		
-		//	xTimerResetFromISR ( timer_IrDA_Ping, 0 );
-		//break;
-//=======
-//>>>>>>> parent of 46baf4b... r010516
 	}
 }
