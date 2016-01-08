@@ -99,7 +99,8 @@ void irda_communication_task(void) {
 			case IRDA_SLAT_PING:
 				irda_timed_out = pdFALSE;
 			
-				
+				port_pin_set_output_level(LED_ERROR, pdFALSE);
+				port_pin_set_output_level(LED_BUSY, pdFALSE);
 				
 				// Start the necessary timers 
 				//vTracePrintF(event_channel, "Rx Request.");
@@ -159,6 +160,7 @@ void timer_irda_ping_callback(TimerHandle_t pxTimer)
 			// r010716-1608: IRDA_SLAT_FIRST_RESPONSE T.O. code
 		case IRDA_SLAT_FIRST_RESPONSE:
 		case IRDA_SLAT_STAGE_7A:
+		case IRDA_SLAT_STAGE_7B:
 			irda_comm_state = IRDA_SLAT_PING;	// Go back to the Ping Mode
 		case IRDA_SLAT_PING:
 			irda_timed_out = pdTRUE;
