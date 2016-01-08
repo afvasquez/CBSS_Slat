@@ -117,27 +117,27 @@ void irda_communication_task(void) {
 				irda_tx_array[3] = 0xBB;
 				irda_tx_array[4] = 0xBB;
 				
-				vTracePrintF(event_channel, "Send Resp.");
+				//vTracePrintF(event_channel, "Send Resp.");
 				
 				// Send this data now
 				xTimerReset( timer_IrDA_Ping, 0 );
 				usart_write_buffer_job(&irda_master, irda_tx_array, 5);
 			break;
-			//case IRDA_SLAT_FIRST_RESPONSE:	// This is the action taken for
-				// Reset the response timer
-			//	xTimerReset( timer_IrDA_Ping, 0 );
+			case IRDA_SLAT_STAGE_7A:
+				// Post r010716-1818:: This stage sends the next message 0xDD
+				// Send out the ping and wait
+				irda_tx_array[0] = 0xDD;
+				irda_tx_array[1] = 0xDD;
+				irda_tx_array[2] = 0xDD;
+				irda_tx_array[3] = 0xDD;
+				irda_tx_array[4] = 0xDD;
 				
-				// Set the ERROR LED to indicate the start of an Rx, sampling sequence
-			//	port_pin_set_output_level(LED_BUSY, pdTRUE);
+				//vTracePrintF(event_channel, "Send Resp.");
 				
-				
-				//port_pin_toggle_output_level(LED_BUSY);
-				
-				
-			//break;
-			case IRDA_SLAT_RESET:
-				
-			break;	
+				// Send this data now
+				xTimerReset( timer_IrDA_Ping, 0 );
+				usart_write_buffer_job(&irda_master, irda_tx_array, 5);
+			break;
 		}
 		
 		system_interrupt_enable_global();
@@ -158,6 +158,7 @@ void timer_irda_ping_callback(TimerHandle_t pxTimer)
 	switch ( irda_comm_state ) {
 			// r010716-1608: IRDA_SLAT_FIRST_RESPONSE T.O. code
 		case IRDA_SLAT_FIRST_RESPONSE:
+		case IRDA_SLAT_STAGE_7A:
 			irda_comm_state = IRDA_SLAT_PING;	// Go back to the Ping Mode
 		case IRDA_SLAT_PING:
 			irda_timed_out = pdTRUE;

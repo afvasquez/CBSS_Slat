@@ -112,7 +112,9 @@ static void irda_master_callback_received(const struct usart_module *const modul
 						}
 					}
 				} else {
+					irda_comm_state = IRDA_SLAT_PING;
 					vTracePrintF(event_channel, "Wrong Data!");
+					port_pin_set_output_level(LED_ERROR, pdTRUE);
 					//irda_comm_state = IRDA_SLAT_PING;
 				}
 			break;
@@ -127,24 +129,43 @@ static void irda_master_callback_received(const struct usart_module *const modul
 					//vTracePrintF(event_channel, "Rxd Header!");
 
 					//port_pin_toggle_output_level(LED_BUSY);
-					irda_comm_state = IRDA_SLAT_PING;	// Change state to send first response
+					irda_comm_state = IRDA_SLAT_STAGE_7A;	// Change state to send first response
+						// The slat card has been synched at this point.
 					port_pin_set_output_level(LED_BUSY, pdTRUE);
 					
 					// Resetting the timer
 					xTimerResetFromISR ( timer_IrDA_Ping, 0 );
 					
-					//xYieldRequired = xTaskResumeFromISR( irda_task_handler );
+					xYieldRequired = xTaskResumeFromISR( irda_task_handler );
 					
-					//if( xYieldRequired == pdTRUE )
-					//{
+					if( xYieldRequired == pdTRUE )
+					{
 						// We should switch context so the ISR returns to a different task.
 						// NOTE:  How this is done depends on the port you are using.  Check
 						// the documentation and examples for your port.
-					//	vTracePrintF(event_channel, "Yield ISR!");
-					//	portYIELD_FROM_ISR(xYieldRequired);
-					//} else {
-					//	vTracePrintF(event_channel, "No Yield! Changed to PING");
-					//}
+						vTracePrintF(event_channel, "Yield ISR!");
+						portYIELD_FROM_ISR(xYieldRequired);
+					} else {
+						vTracePrintF(event_channel, "No Yield! Changed to PING");
+					}
+				} else {
+					vTracePrintF(event_channel, "Wrong Data!");
+					port_pin_set_output_level(LED_ERROR, pdTRUE);
+					irda_comm_state = IRDA_SLAT_PING;
+				}
+			break;
+			case IRDA_SLAT_STAGE_7B:	// r010716-1608: This the code to execute when we get 0xCC. Stage 6
+				// If this is correct, this board can be safely assumed to be synchronized
+				if ( irda_rx_array[0] == irda_rx_array[1] && irda_rx_array[1] == irda_rx_array[2] &&
+						irda_rx_array[2] == irda_rx_array[3] && irda_rx_array[3] == irda_rx_array[4] &&
+						irda_rx_array[0] == 0xEE )
+				{
+					irda_comm_state = IRDA_SLAT_PING;	// Change state to send first response
+					// The slat card has been synched at this point.
+					//port_pin_set_output_level(LED_BUSY, pdTRUE);
+				
+					// Resetting the timer
+					xTimerResetFromISR ( timer_IrDA_Ping, 0 );
 				} else {
 					vTracePrintF(event_channel, "Wrong Data!");
 					port_pin_set_output_level(LED_ERROR, pdTRUE);
@@ -190,6 +211,20 @@ static void irda_master_callback_transmitted(const struct usart_module *const mo
 				// the documentation and examples for your port.
 			//	portYIELD_FROM_ISR(xYieldRequired);
 			//}
+		break;
+		case IRDA_SLAT_STAGE_7A:
+			// Post: r010716-1818: Change the machine state accordingly
+			irda_comm_state = IRDA_SLAT_STAGE_7B;	// Go back to the First Response mode
+			
+			
+			
+			// Make sure to reset the timer
+			xTimerResetFromISR ( timer_IrDA_Ping, 0 );
+			
+			
+			// Post: r010716-1818: Request the 0xCC data reception right away
+			usart_enable_transceiver( &irda_master, USART_TRANSCEIVER_RX );	// Enable Receiving Transceiver
+			usart_read_buffer_job( &irda_master, irda_rx_array, 5 );	// Try to get the 3-Byte ping
 		break;
 	}
 }
