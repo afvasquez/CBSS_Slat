@@ -8,6 +8,8 @@ src\ASF\sam0\drivers\sercom\sercom.c
 
 src\Peripherals\bastian_sercom.c
 
+src\Peripherals\crc_utility.c
+
 src\ASF\sam0\drivers\sercom\sercom_interrupt.c
 
 src\ASF\sam0\drivers\sercom\usart\usart.c

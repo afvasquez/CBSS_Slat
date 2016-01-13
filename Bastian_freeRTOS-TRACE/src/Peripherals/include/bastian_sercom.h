@@ -51,4 +51,10 @@ extern BaseType_t irda_timed_out;
 extern TimerHandle_t timer_IrDA_Ping;
 extern TimerHandle_t timer_IrDA_Sync;
 
+////////////////////////// CRC Utilities /////////////////////////////////
+//	This function checks for the validity of the CRC byte on a receiving
+//		byte array.
+BaseType_t crc_check( uint8_t* data, uint8_t size);
+void crc_generate( uint8_t* data, uint8_t size );
+
 #endif /* BASTIAN_SERCOM_H_ */ 

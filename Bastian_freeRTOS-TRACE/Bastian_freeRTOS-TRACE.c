@@ -111,12 +111,15 @@ void irda_communication_task(void) {
 				usart_read_buffer_job( &irda_master, irda_rx_array, 3 );	// Try to get the 3-Byte ping
 			break;
 			case IRDA_SLAT_FIRST:  // Send the response back and reset
+				
 				// Send out the ping and wait
 				irda_tx_array[0] = 0xBB;
 				irda_tx_array[1] = 0xBB;
 				irda_tx_array[2] = 0xBB;
 				irda_tx_array[3] = 0xBB;
-				irda_tx_array[4] = 0xBB;
+				//irda_tx_array[4] = 0xBB;
+				
+				crc_generate(&irda_tx_array, 4);	// Generate the CRC byte for this packet
 				
 				//vTracePrintF(event_channel, "Send Resp.");
 				
@@ -131,7 +134,9 @@ void irda_communication_task(void) {
 				irda_tx_array[1] = 0xDD;
 				irda_tx_array[2] = 0xDD;
 				irda_tx_array[3] = 0xDD;
-				irda_tx_array[4] = 0xDD;
+				//irda_tx_array[4] = 0xDD;
+				
+				crc_generate(&irda_tx_array, 4);	// Generate the CRC byte for this packet
 				
 				//vTracePrintF(event_channel, "Send Resp.");
 				

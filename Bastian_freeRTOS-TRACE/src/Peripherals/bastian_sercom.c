@@ -75,13 +75,13 @@ static void irda_master_callback_received(const struct usart_module *const modul
 	
 				if ( irda_rx_array[0] == irda_rx_array[1] && irda_rx_array[1] == irda_rx_array[2] && 
 						irda_rx_array[0] == 0xAA )
-				{
+				{	
 					if ( lock_allow_main_discovery ) {
 						if ( lock_trace == pdFALSE ) {
 							lock_trace = pdTRUE;
 					
 							// Start the trace
-							uiTraceStart();
+							//uiTraceStart();
 						}
 						
 						// r010716-1608: The LED action was disabled so that we can test the revision
@@ -120,9 +120,7 @@ static void irda_master_callback_received(const struct usart_module *const modul
 			break;
 			case IRDA_SLAT_FIRST_RESPONSE:	// r010716-1608: This the code to execute when we get 0xCC. Stage 6
 						// If this is correct, this board can be safely assumed to be synchronized
-				if ( irda_rx_array[0] == irda_rx_array[1] && irda_rx_array[1] == irda_rx_array[2] &&
-						irda_rx_array[2] == irda_rx_array[3] && irda_rx_array[3] == irda_rx_array[4] && 
-						irda_rx_array[0] == 0xCC )
+				if ( crc_check(&irda_rx_array, 4) )
 				{
 					
 
@@ -149,16 +147,14 @@ static void irda_master_callback_received(const struct usart_module *const modul
 						vTracePrintF(event_channel, "No Yield! Changed to PING");
 					}
 				} else {
-					vTracePrintF(event_channel, "Wrong Data!");
+					//vTracePrintF(event_channel, "Wrong Data!");
 					port_pin_set_output_level(LED_ERROR, pdTRUE);
 					irda_comm_state = IRDA_SLAT_PING;
 				}
 			break;
 			case IRDA_SLAT_STAGE_7B:	// r010716-1608: This the code to execute when we get 0xCC. Stage 6
 				// If this is correct, this board can be safely assumed to be synchronized
-				if ( irda_rx_array[0] == irda_rx_array[1] && irda_rx_array[1] == irda_rx_array[2] &&
-						irda_rx_array[2] == irda_rx_array[3] && irda_rx_array[3] == irda_rx_array[4] &&
-						irda_rx_array[0] == 0xEE )
+				if ( crc_check(&irda_rx_array, 4) )
 				{
 					irda_comm_state = IRDA_SLAT_PING;	// Change state to send first response
 					// The slat card has been synched at this point.

@@ -410,7 +410,8 @@
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
   <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcc.compiler.optimization.DebugLevel>Default (-g2)</armgcc.compiler.optimization.DebugLevel>
+  <armgcc.compiler.optimization.GeneratePositionIndependentCode>True</armgcc.compiler.optimization.GeneratePositionIndependentCode>
+  <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
   <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
   <armgcc.linker.libraries.Libraries>
     <ListValues>
@@ -473,6 +474,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\Peripherals\bastian_sercom.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Peripherals\crc_utility.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\Peripherals\include\bastian_sercom.h">
