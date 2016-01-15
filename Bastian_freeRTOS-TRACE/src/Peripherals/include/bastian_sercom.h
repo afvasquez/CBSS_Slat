@@ -22,6 +22,43 @@
 
 #define IRDA_SLAT_RESET		(( uint8_t ) 0x0E )
 
+// Address Pin Definitons
+#define ADDR_BIT_0 PIN_PA28
+#define ADDR_BIT_1 PIN_PA07
+#define ADDR_BIT_2 PIN_PA06
+#define ADDR_BIT_3 PIN_PA05
+#define ADDR_BIT_4 PIN_PA04
+#define ADDR_BIT_5 PIN_PA03
+#define ADDR_BIT_6 PIN_PA02
+#define ADDR_BIT_7 PIN_PA15
+#define ADDR_BIT_8 PIN_PA14
+
+//////////////////////////////////////////////////////////////////////////
+///////////////////////////  BASTIAN IrDA  ///////////////////////////////
+struct slat_systems {
+	// IrDA Communication Timeout Counter
+	//uint32_t system_clock;
+	
+	// Slat Address
+	uint8_t system_address;
+	
+	// Job status and utilities
+	// Current Job Number
+	//uint8_t	job_number;
+	//uint8_t next_job_number;
+	// Job description
+	//uint8_t job_description;
+	// Is Job done (needs to be done?
+	//bool is_job_done;
+	
+	// Is job to be done
+	//bool is_job_to_start;
+	
+	// Debug int
+	//uint8_t debug_integer;
+};
+
+extern volatile struct slat_systems slat;
 
 ////////////////////  BASTIAN SERCOM  ////////////////////////////////////
 //		Perform complete SERCOM module setup for the application
@@ -49,7 +86,6 @@ extern BaseType_t irda_timed_out;
 
 // Define the handler for the timer
 extern TimerHandle_t timer_IrDA_Ping;
-extern TimerHandle_t timer_IrDA_Sync;
 
 ////////////////////////// CRC Utilities /////////////////////////////////
 //	This function checks for the validity of the CRC byte on a receiving

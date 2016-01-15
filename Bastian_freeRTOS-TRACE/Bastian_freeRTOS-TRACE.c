@@ -10,14 +10,16 @@
 #include "asf.h"
 #include "bastian_sercom.h"
 
+volatile struct slat_systems slat;
+
 void irda_communication_task(void);
 void timer_irda_ping_callback(TimerHandle_t pxTimer);
 void timer_irda_sync_callback(TimerHandle_t pxTimer);
+void get_system_address(void);
 
 // Define the handler for the timer
 // Define the handler for the timer
 TimerHandle_t timer_IrDA_Ping;
-TimerHandle_t timer_IrDA_Sync;
 
 TaskHandle_t irda_task_handler;
 traceLabel event_channel;
@@ -40,6 +42,26 @@ int main(void)
 	port_pin_set_config(LED_ERROR, &led_out);
 	//////////////////////////////////////////////////////////////////////////
 	
+	struct port_config sw_input;
+	port_get_config_defaults(&sw_input);
+	
+	sw_input.direction = PORT_PIN_DIR_INPUT;
+	sw_input.input_pull = PORT_PIN_PULL_DOWN;
+	
+	// Set the pins for determining the address of the slat
+	port_pin_set_config(ADDR_BIT_0, &sw_input);
+	port_pin_set_config(ADDR_BIT_1, &sw_input);
+	port_pin_set_config(ADDR_BIT_2, &sw_input);
+	port_pin_set_config(ADDR_BIT_3, &sw_input);
+	port_pin_set_config(ADDR_BIT_4, &sw_input);
+	port_pin_set_config(ADDR_BIT_5, &sw_input);
+	port_pin_set_config(ADDR_BIT_6, &sw_input);
+	port_pin_set_config(ADDR_BIT_7, &sw_input);
+	port_pin_set_config(ADDR_BIT_8, &sw_input);
+	//////////////////////////////////////////////////////////////////////////
+	//	Obtain the slat address
+	get_system_address();
+	
 	//////////////////////////////////////////////////////////////////////////
 	// Start the IrDA communication port
 	bastian_IrDA_configuration();
@@ -59,7 +81,7 @@ int main(void)
 					(const char *)"IrDA",
 					configMINIMAL_STACK_SIZE*3,
 					NULL,
-					2,
+					3,
 					&irda_task_handler );
 					
 	
@@ -68,9 +90,7 @@ int main(void)
 	
 	// Create the necessary timer
 	timer_IrDA_Ping = xTimerCreate("Ping", 2, pdFALSE, 0, timer_irda_ping_callback);
-	timer_IrDA_Sync = xTimerCreate("Sync", 1, pdFALSE, 1, timer_irda_sync_callback );
 	xTimerStart(timer_IrDA_Ping, 0);	// Start timer that keeps track of Linking
-	//xTimerStart(timer_IrDA_Sync, 0);	// Start ping timer
 	
 	// ..and let FreeRTOS run tasks!
 	vTaskStartScheduler();
@@ -192,4 +212,40 @@ void timer_irda_sync_callback(TimerHandle_t pxTimer)
 	configASSERT( pxTimer );
 	
 	
+}
+
+void get_system_address(void) {
+	slat.system_address = 0x00;
+	
+	if ( port_pin_get_input_level(ADDR_BIT_7) ) {
+		slat.system_address = slat.system_address | 0b10000000;
+	}
+	
+	if ( port_pin_get_input_level(ADDR_BIT_6) ) {
+		slat.system_address = slat.system_address | 0b01000000;
+	}
+	
+	if ( port_pin_get_input_level(ADDR_BIT_5) ) {
+		slat.system_address = slat.system_address | 0b00100000;
+	}
+	
+	if ( port_pin_get_input_level(ADDR_BIT_4) ) {
+		slat.system_address = slat.system_address | 0b00010000;
+	}
+	
+	if ( port_pin_get_input_level(ADDR_BIT_3) ) {
+		slat.system_address = slat.system_address | 0b00001000;
+	}
+	
+	if ( port_pin_get_input_level(ADDR_BIT_2) ) {
+		slat.system_address = slat.system_address | 0b00000100;
+	}
+	
+	if ( port_pin_get_input_level(ADDR_BIT_1) ) {
+		slat.system_address = slat.system_address | 0b00000010;
+	}
+	
+	if ( port_pin_get_input_level(ADDR_BIT_0) ) {
+		slat.system_address = slat.system_address | 0b00000001;
+	}
 }
