@@ -22,7 +22,7 @@ void get_system_address(void);
 TimerHandle_t timer_IrDA_Ping;
 
 TaskHandle_t irda_task_handler;
-traceLabel event_channel;
+//traceLabel event_channel;
 
 //struct tc_module tc_instance;
 
@@ -65,14 +65,16 @@ int main(void)
 	//////////////////////////////////////////////////////////////////////////
 	// Start the IrDA communication port
 	bastian_IrDA_configuration();
+	// Setting up the port for communication
+	ebp_papst_motor_setup();
 	
 	// Start the trace logger
-	vTraceInitTraceData();
+	//vTraceInitTraceData();
 	
 	
 	
 	/* Initialization code - create the channel label for a VTracePrintF*/
-	event_channel = xTraceOpenLabel("Debug");
+	//event_channel = xTraceOpenLabel("Debug");
 
 	
 	
@@ -84,6 +86,8 @@ int main(void)
 					3,
 					&irda_task_handler );
 					
+	// Create motor handling tasks
+	ebp_papst_motor_task_setup();
 	
 	// Enable global interrupts
 	system_interrupt_enable_global();
@@ -119,7 +123,7 @@ void irda_communication_task(void) {
 			case IRDA_SLAT_PING:
 				irda_timed_out = pdFALSE;
 			
-				port_pin_set_output_level(LED_ERROR, pdFALSE);
+				//port_pin_set_output_level(LED_ERROR, pdFALSE);
 				port_pin_set_output_level(LED_BUSY, pdFALSE);
 				
 				// Start the necessary timers 
@@ -190,9 +194,9 @@ void timer_irda_ping_callback(TimerHandle_t pxTimer)
 		case IRDA_SLAT_PING:
 			irda_timed_out = pdTRUE;
 			
-			vTracePrintF(event_channel, "Ping TO!");
+			//vTracePrintF(event_channel, "Ping TO!");
 			// Set the ERROR LED to indicate the start of an Rx, sampling sequence
-			port_pin_set_output_level(LED_ERROR, pdFALSE);
+			//port_pin_set_output_level(LED_ERROR, pdFALSE);
 			
 			port_pin_set_output_level(LED_BUSY, pdFALSE);
 			// There was no significant response to the ping,

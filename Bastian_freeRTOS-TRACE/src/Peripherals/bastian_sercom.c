@@ -104,17 +104,17 @@ static void irda_master_callback_received(const struct usart_module *const modul
 							// We should switch context so the ISR returns to a different task.
 							// NOTE:  How this is done depends on the port you are using.  Check
 							// the documentation and examples for your port.
-							vTracePrintF(event_channel, "Yield ISR!");
+							//vTracePrintF(event_channel, "Yield ISR!");
 							portYIELD_FROM_ISR(xYieldRequired);
 						} else {
 							irda_comm_state = IRDA_SLAT_PING;
-							vTracePrintF(event_channel, "No Yield! Changed to PING");
+							//vTracePrintF(event_channel, "No Yield! Changed to PING");
 						}
 					}
 				} else {
 					irda_comm_state = IRDA_SLAT_PING;
-					vTracePrintF(event_channel, "Wrong Data!");
-					port_pin_set_output_level(LED_ERROR, pdTRUE);
+					//vTracePrintF(event_channel, "Wrong Data!");
+					//port_pin_set_output_level(LED_ERROR, pdTRUE);
 					//irda_comm_state = IRDA_SLAT_PING;
 				}
 			break;
@@ -141,14 +141,14 @@ static void irda_master_callback_received(const struct usart_module *const modul
 						// We should switch context so the ISR returns to a different task.
 						// NOTE:  How this is done depends on the port you are using.  Check
 						// the documentation and examples for your port.
-						vTracePrintF(event_channel, "Yield ISR!");
+						//vTracePrintF(event_channel, "Yield ISR!");
 						portYIELD_FROM_ISR(xYieldRequired);
 					} else {
-						vTracePrintF(event_channel, "No Yield! Changed to PING");
+						//vTracePrintF(event_channel, "No Yield! Changed to PING");
 					}
 				} else {
 					//vTracePrintF(event_channel, "Wrong Data!");
-					port_pin_set_output_level(LED_ERROR, pdTRUE);
+					//port_pin_set_output_level(LED_ERROR, pdTRUE);
 					irda_comm_state = IRDA_SLAT_PING;
 				}
 			break;
@@ -163,8 +163,8 @@ static void irda_master_callback_received(const struct usart_module *const modul
 					// Resetting the timer
 					xTimerResetFromISR ( timer_IrDA_Ping, 0 );
 				} else {
-					vTracePrintF(event_channel, "Wrong Data!");
-					port_pin_set_output_level(LED_ERROR, pdTRUE);
+					//vTracePrintF(event_channel, "Wrong Data!");
+					//port_pin_set_output_level(LED_ERROR, pdTRUE);
 					irda_comm_state = IRDA_SLAT_PING;
 				}
 			break;

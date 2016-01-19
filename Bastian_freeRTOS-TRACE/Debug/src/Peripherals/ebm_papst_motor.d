@@ -1,5 +1,5 @@
-src/Peripherals/bastian_sercom.d src/Peripherals/bastian_sercom.o: \
- ../src/Peripherals/bastian_sercom.c ../src/asf.h \
+src/Peripherals/ebm_papst_motor.d src/Peripherals/ebm_papst_motor.o: \
+ ../src/Peripherals/ebm_papst_motor.c ../src/asf.h \
  ../src/ASF/sam0/utils/compiler.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\arm\ gcc\native\4.8.1443\arm-gnu-toolchain\lib\gcc\arm-none-eabi\4.8.4\include\stddef.h \
  ../src/ASF/common/utils/parts.h ../src/ASF/sam0/utils/status_codes.h \

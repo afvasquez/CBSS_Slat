@@ -80,12 +80,66 @@ extern uint8_t irda_comm_state;
 extern uint8_t irda_tx_array[6];
 extern uint8_t irda_rx_array[6];
 
-extern traceLabel event_channel;
+//extern traceLabel event_channel;
 
 extern BaseType_t irda_timed_out;
 
 // Define the handler for the timer
 extern TimerHandle_t timer_IrDA_Ping;
+
+//////////////////////////////////////////////////////////////////////////
+///////////////////////////  BASTIAN IrDA  ///////////////////////////////
+struct ebm_papst_motor {
+	// Motor Delay Variable
+// 	uint32_t motor_comm_delay;
+// 	uint32_t motor_job_delay;
+// 	uint32_t motor_timeout;
+	
+	// Motor Communication State
+	uint8_t motor_state;
+	
+	// Motor Health
+	uint8_t health;
+	
+	// Is the motor synced to card
+// 	bool motor_is_synced;
+// 	
+// 	// Is the motor currently on health check
+// 	bool motor_is_on_health_check;
+// 	// Is the motor currently on a job
+// 	bool motor_is_doing_a_job;
+// 	// Is the error to be reported a hard fault?
+// 	bool is_hard_fault;
+// 	// Perform Motor Actions
+// 	bool do_act_on_motor;
+ 	
+ 	// Motor Communication Buffers
+ 	uint8_t rx_buffer[10];
+ 	uint8_t tx_buffer[10];
+// 	uint8_t rx_data_length;
+// 	uint8_t tx_data_length;
+};
+
+
+//////////////////////////////////////////////////////////////////////////
+//	############# Necessary Motor Library
+//////////////////////////////////////////////////////////////////////////
+// Motor Interface definition
+#define MOTOR_TRANSCEIVER_ENABLE_PIN	PIN_PA10
+#define MOTOR_A_SIGNAL					PIN_PA11
+
+//////////////////////////////////////////////////////////////////////////
+void ebp_papst_motor_setup( void );
+static void motor_callback_received(const struct usart_module *const module);
+static void motor_callback_transmitted(const struct usart_module *const module);
+void ebp_papst_motor_task_setup( void );
+
+////////////////////  BASTIAN SERCOM  ////////////////////////////////////
+//		MODULE: Motor Module -> motor_serial
+//		module handler for the Serial interaction with Motor
+extern volatile struct usart_module motor_serial;
+//		External reference to the task
+extern TaskHandle_t motor_task_handler;
 
 ////////////////////////// CRC Utilities /////////////////////////////////
 //	This function checks for the validity of the CRC byte on a receiving
