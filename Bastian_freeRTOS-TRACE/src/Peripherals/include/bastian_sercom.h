@@ -102,8 +102,8 @@ struct ebm_papst_motor {
 	uint8_t health;
 	
 	// Is the motor synced to card
-// 	bool motor_is_synced;
-// 	
+ 	bool motor_is_synced;
+	 	
 // 	// Is the motor currently on health check
 // 	bool motor_is_on_health_check;
 // 	// Is the motor currently on a job
@@ -136,7 +136,7 @@ void ebp_papst_motor_task_setup( void );
 
 ////////////////////  BASTIAN SERCOM  ////////////////////////////////////
 //		MODULE: Motor Module -> motor_serial
-//		module handler for the Serial interaction with Motor
+//			module handler for the Serial interaction with Motor
 extern volatile struct usart_module motor_serial;
 //		External reference to the task
 extern TaskHandle_t motor_task_handler;
@@ -144,6 +144,7 @@ extern TaskHandle_t motor_task_handler;
 ////////////////////////// CRC Utilities /////////////////////////////////
 //	This function checks for the validity of the CRC byte on a receiving
 //		byte array.
+
 BaseType_t crc_check( uint8_t* data, uint8_t size);
 void crc_generate( uint8_t* data, uint8_t size );
 

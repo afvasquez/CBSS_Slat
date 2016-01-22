@@ -13,7 +13,7 @@ BaseType_t crc_check( uint8_t* data, uint8_t size ) {
 	// Return result as boolean
 	// pdTRUE  -> CRC Checks Out
 	// pdFALSE -> CRC does NOT check out
-	*( data + 5 ) = crc_result;
+	//*( data + 5 ) = crc_result;
 	if ( crc_result == *(data + size) ) return pdTRUE;
 	else return pdFALSE;
 }
