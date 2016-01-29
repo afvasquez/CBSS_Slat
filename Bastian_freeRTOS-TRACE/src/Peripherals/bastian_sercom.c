@@ -50,7 +50,7 @@ void bastian_IrDA_configuration (void){
 //////////////////////////////////////////////////////////////////////////
 // IrDA Rx Callback Function
 BaseType_t lock_allow_main_discovery = pdTRUE;
-TickType_t lock_main_discovery_count;
+volatile TickType_t lock_main_discovery_count;
 BaseType_t lock_trace = pdFALSE;
 TickType_t unlock_count;
 BaseType_t irda_timed_out = pdFALSE;
@@ -68,13 +68,15 @@ static void irda_master_callback_received(const struct usart_module *const modul
 				if ( lock_allow_main_discovery == pdFALSE ) {
 					unlock_count = xTaskGetTickCountFromISR();
 				
-					if ( unlock_count >= lock_main_discovery_count ) {
+					if ( unlock_count >= lock_main_discovery_count && 
+							motor.is_motor_queued == false && 
+							motor.is_motor_running == false ) {
 						lock_allow_main_discovery = pdTRUE;
 					}
 				}
 	
-				if ( irda_rx_array[0] == irda_rx_array[1] && irda_rx_array[1] == irda_rx_array[2] && 
-						irda_rx_array[0] == 0xAA )
+				if ( ( irda_rx_array[0] == irda_rx_array[1] && irda_rx_array[1] == irda_rx_array[2] && irda_rx_array[0] == 0xAA ) &&
+						motor.is_motor_queued == false && motor.is_motor_running == false )
 				{	
 					if ( lock_allow_main_discovery ) {
 						if ( lock_trace == pdFALSE ) {
@@ -123,6 +125,15 @@ static void irda_master_callback_received(const struct usart_module *const modul
 				if ( crc_check(&irda_rx_array, 4) )
 				{
 					
+						// Check if we have an incoming job
+					if ( motor.rx_buffer[0] > 0x00 && !motor.is_motor_error) {	// if there is a job number, we note this as the start of a job
+						motor.rx_data_A[0] = irda_rx_array[0];
+						motor.rx_data_A[1] = irda_rx_array[1];
+						motor.rx_data_A[2] = irda_rx_array[2];
+						motor.rx_data_A[3] = irda_rx_array[3];
+						
+						motor.job_is_incoming = true;
+					}
 
 					//vTracePrintF(event_channel, "Rxd Header!");
 
@@ -159,6 +170,23 @@ static void irda_master_callback_received(const struct usart_module *const modul
 					irda_comm_state = IRDA_SLAT_PING;	// Change state to send first response
 					// The slat card has been synched at this point.
 					//port_pin_set_output_level(LED_BUSY, pdTRUE);
+					
+					// Check if there is a job to do
+					if ( motor.job_is_incoming ) {
+						// There is a job that is due for completion
+						motor.rx_data_B[0] = irda_rx_array[0];
+						motor.rx_data_B[1] = irda_rx_array[1];
+						motor.rx_data_B[2] = irda_rx_array[2];
+						motor.rx_data_B[3] = irda_rx_array[3];
+						
+						motor.job_is_incoming = false;
+						motor.is_motor_queued = true;
+					}
+					
+					// Since this is the end  of a transaction, we lock the discovery
+					lock_allow_main_discovery = pdFALSE;
+					lock_main_discovery_count = xTaskGetTickCountFromISR();
+					lock_main_discovery_count += IRDA_PING_PERIOD;	// Receive data again in about half a second
 				
 					// Resetting the timer
 					xTimerResetFromISR ( timer_IrDA_Ping, 0 );

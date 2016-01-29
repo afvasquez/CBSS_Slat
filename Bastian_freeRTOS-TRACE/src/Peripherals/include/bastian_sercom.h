@@ -21,6 +21,9 @@
 #define IRDA_SLAT_STAGE_7B	(( uint8_t ) 0x06 )
 
 #define IRDA_SLAT_RESET		(( uint8_t ) 0x0E )
+	
+	// Half a second wait from observed ping to the next
+#define IRDA_PING_PERIOD	(( TickType_t ) 500 )	
 
 // Address Pin Definitons
 #define ADDR_BIT_0 PIN_PA28
@@ -97,6 +100,7 @@ struct ebm_papst_motor {
 	
 	// Motor Communication State
 	uint8_t motor_state;
+	uint8_t motor_state_callback;
 	
 	// Motor Health
 	uint8_t health;
@@ -110,16 +114,45 @@ struct ebm_papst_motor {
 // 	bool motor_is_doing_a_job;
 // 	// Is the error to be reported a hard fault?
 // 	bool is_hard_fault;
-// 	// Perform Motor Actions
-// 	bool do_act_on_motor;
+ 	// Perform Motor Actions
+ 	bool job_is_incoming;
  	
  	// Motor Communication Buffers
- 	uint8_t rx_buffer[10];
- 	uint8_t tx_buffer[10];
+ 	uint8_t rx_buffer[20];
+ 	uint8_t tx_buffer[20];
+	 
+	uint8_t rx_data_A[4];
+	uint8_t rx_data_B[4];
+		
+	uint16_t rx_ramp_value;
+	uint16_t rx_duration_value;
+	int16_t rx_speed_value;
+	uint16_t rx_delay_value;
 // 	uint8_t rx_data_length;
 // 	uint8_t tx_data_length;
+
+	// Motor Run Variables
+		// Total run duration
+	bool is_motor_ready;			// Is the motor ready to run?
+	bool is_motor_queued;			// Is there an action ready to be processed?
+	bool is_motor_running;			// The motor is running and will not respond to any beacon pings at this point
+	bool is_motor_error;			// Is there an outstanding error in the motor
+	uint8_t motor_job_number;		// This is the ID for the job that is being done
+	TickType_t run_delay_duration;	// Total time to delay before the motor runs again
+	TickType_t run_total_duration;	// Total duration of the run => t_r + t_p + t_r
+	TickType_t run_nzdata_duration;	// Total duration of the run with regards to actual data being sent;
+	TickType_t motor_dead_time;		// This is the amount of time that the motor will be idle
+	uint16_t motor_speed_rpm;		// Speed command for the motor
+	uint16_t motor_ramp_ms;			// Ramp in ms-per-1krpm to be sent to motor
+	uint8_t ramp_high_nibble;		// These are the utilities to send the correct data
+	uint8_t ramp_low_nibble;
+	uint8_t speed_high_nibble;		// These are the utilities to send the correct data
+	uint8_t speed_low_nibble;
+	uint8_t allocated_power;
+	uint16_t allocated_current;
 };
 
+extern volatile struct ebm_papst_motor motor;
 
 //////////////////////////////////////////////////////////////////////////
 //	############# Necessary Motor Library

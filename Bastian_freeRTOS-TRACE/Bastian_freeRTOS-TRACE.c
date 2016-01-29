@@ -137,7 +137,7 @@ void irda_communication_task(void) {
 			case IRDA_SLAT_FIRST:  // Send the response back and reset
 				
 				// Send out the ping and wait
-				irda_tx_array[0] = 0xBB;
+				irda_tx_array[0] = slat.system_address;
 				irda_tx_array[1] = 0xBB;
 				irda_tx_array[2] = 0xBB;
 				irda_tx_array[3] = 0xBB;
@@ -189,6 +189,7 @@ void timer_irda_ping_callback(TimerHandle_t pxTimer)
 			// r010716-1608: IRDA_SLAT_FIRST_RESPONSE T.O. code
 		case IRDA_SLAT_FIRST_RESPONSE:
 		case IRDA_SLAT_STAGE_7A:
+			motor.job_is_incoming = false;
 		case IRDA_SLAT_STAGE_7B:
 			irda_comm_state = IRDA_SLAT_PING;	// Go back to the Ping Mode
 		case IRDA_SLAT_PING:
