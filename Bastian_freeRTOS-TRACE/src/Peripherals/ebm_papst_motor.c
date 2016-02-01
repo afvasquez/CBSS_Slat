@@ -264,6 +264,8 @@ static void motor_callback_received(const struct usart_module *const module) {
 						motor.speed_high_nibble = 0;
 						motor.speed_low_nibble = 0;
 						
+						if ( !motor.motor_job_report ) motor.motor_job_report = 0xCC;	// Job did not complete due to over-current
+						
 						motor_disable_A();
 						
 					}
@@ -591,6 +593,7 @@ void motor_task( void ) {
 	motor.is_motor_queued = false;
 	motor.is_motor_error = false;
 	motor.job_is_incoming = false;
+	motor.motor_report_past_job = true;
 	
 	timer_motor_comm = xTimerCreate("Motr", 20, pdFALSE, 0, motor_comm_ping_callback);
 	
@@ -612,6 +615,7 @@ void motor_task( void ) {
 					motor.motor_job_number = motor.rx_data_A[0];
 						// Getting the Ramp
 					motor.rx_ramp_value = ( uint16_t ) motor.rx_data_A[3];
+					motor.rx_ramp_value = motor.rx_ramp_value << 4;
 					temp_8bit_variable = motor.rx_data_A[2];
 					temp_8bit_variable = temp_8bit_variable & 0x0F;
 					temp_16bit_variable = ( uint16_t ) temp_8bit_variable;
@@ -619,6 +623,7 @@ void motor_task( void ) {
 					motor.rx_ramp_value = motor.rx_ramp_value | temp_16bit_variable; // Ramp Value Obtained!
 						// Getting the duration
 					motor.rx_duration_value = ( uint16_t ) motor.rx_data_B[2];
+					motor.rx_duration_value = motor.rx_duration_value << 4;
 					temp_8bit_variable = motor.rx_data_B[1];
 					temp_8bit_variable = temp_8bit_variable & 0x0F;
 					temp_16bit_variable = ( uint16_t ) temp_8bit_variable;
@@ -636,7 +641,6 @@ void motor_task( void ) {
 					temp_16bit_variable = (uint16_t) motor.rx_data_A[1];
 					motor.rx_delay_value = (uint16_t) temp_16bit_variable << 4;
 					temp_8bit_variable = (uint8_t) motor.rx_data_A[2] & 0xF0;
-					temp_8bit_variable = temp_8bit_variable >> 4;
 					motor.rx_delay_value = motor.rx_delay_value | (uint16_t) temp_8bit_variable;	// Delay value obtained!
 					
 					
@@ -687,6 +691,8 @@ void motor_task( void ) {
 						// At this point, we must send all the ramps to the motor
 							// Change the state
 					motor.motor_state = MOTOR_STATE_CHANGE_CW_RAMP_UP;
+					
+					motor.motor_job_report = 0x00;	// Start with a clean job report
 					
 						// Populate the buffer
 					motor.tx_buffer[0] = 0x03;
@@ -1039,6 +1045,10 @@ void motor_comm_ping_callback(TimerHandle_t pxTimer)
 			
 			motor.is_motor_running = false;
 			motor.is_motor_queued = false;
+			
+				// Since we have finished a run, go ahead and report the job
+			motor.motor_report_past_job = true;
+			if ( !motor.motor_job_report ) motor.motor_job_report = 0xFF;	// Job Completed fine
 			
 			// The IrDA task is now to reset and ping again
 			vTaskResume( motor_task_handler );

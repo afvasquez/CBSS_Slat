@@ -126,7 +126,7 @@ static void irda_master_callback_received(const struct usart_module *const modul
 				{
 					
 						// Check if we have an incoming job
-					if ( motor.rx_buffer[0] > 0x00 && !motor.is_motor_error) {	// if there is a job number, we note this as the start of a job
+					if ( irda_rx_array[0] > 0x00 && !motor.is_motor_error) {	// if there is a job number, we note this as the start of a job
 						motor.rx_data_A[0] = irda_rx_array[0];
 						motor.rx_data_A[1] = irda_rx_array[1];
 						motor.rx_data_A[2] = irda_rx_array[2];

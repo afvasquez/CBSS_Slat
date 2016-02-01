@@ -131,12 +131,16 @@ struct ebm_papst_motor {
 // 	uint8_t rx_data_length;
 // 	uint8_t tx_data_length;
 
+	
+
 	// Motor Run Variables
 		// Total run duration
 	bool is_motor_ready;			// Is the motor ready to run?
 	bool is_motor_queued;			// Is there an action ready to be processed?
 	bool is_motor_running;			// The motor is running and will not respond to any beacon pings at this point
 	bool is_motor_error;			// Is there an outstanding error in the motor
+	bool motor_report_past_job;		// Will the motor report the job on file next time around?
+	uint8_t motor_job_report;
 	uint8_t motor_job_number;		// This is the ID for the job that is being done
 	TickType_t run_delay_duration;	// Total time to delay before the motor runs again
 	TickType_t run_total_duration;	// Total duration of the run => t_r + t_p + t_r

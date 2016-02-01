@@ -138,9 +138,19 @@ void irda_communication_task(void) {
 				
 				// Send out the ping and wait
 				irda_tx_array[0] = slat.system_address;
-				irda_tx_array[1] = 0xBB;
-				irda_tx_array[2] = 0xBB;
-				irda_tx_array[3] = 0xBB;
+				
+					// Will the motor report the job right now?
+				if ( motor.motor_report_past_job ) {
+					irda_tx_array[1] = motor.motor_job_number;
+					irda_tx_array[2] = motor.motor_job_report;	
+				} else {
+					irda_tx_array[1] = 0x00;
+					irda_tx_array[2] = 0x00;
+				}
+				
+				motor.motor_report_past_job = false;
+				
+				irda_tx_array[3] = motor.health;
 				//irda_tx_array[4] = 0xBB;
 				
 				crc_generate(&irda_tx_array, 4);	// Generate the CRC byte for this packet
