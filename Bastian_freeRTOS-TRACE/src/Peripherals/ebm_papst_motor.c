@@ -994,7 +994,7 @@ void motor_comm_ping_callback(TimerHandle_t pxTimer)
 			motor.is_motor_running = false;
 			motor.is_motor_ready = false;
 			motor.is_motor_queued = false;
-			
+			motor.health = 0x00;	// Motor is no longer there....
 			port_pin_set_output_level(LED_ERROR, pdTRUE);
 		case MOTOR_COMM_ERROR:
 		case MOTOR_STATE_HEALTH_RESPONSE:
@@ -1010,6 +1010,9 @@ void motor_comm_ping_callback(TimerHandle_t pxTimer)
 				// The IrDA task is now to reset and ping again
 			vTaskResume( motor_task_handler );
 		break;
+		case MOTOR_STATE_START_UP_CHECK_HEALTH:
+			motor.health = 0x00;	// Motor is no longer there....
+			port_pin_set_output_level(LED_ERROR, pdTRUE);
 		case MOTOR_COMM_START_UP_ERROR:
 		case MOTOR_STATE_START_UP_CHECK_MODE_1:
 		case MOTOR_STATE_START_UP_CHECK_MODE_2:
@@ -1029,7 +1032,6 @@ void motor_comm_ping_callback(TimerHandle_t pxTimer)
 		case MOTOR_COMM_GET_MOTOR_ACCESS_START_UP:
 		case MOTOR_COMM_GET_MOTOR_ACCESS:
 			motor.motor_state = MOTOR_STATE_START_UP_CHECK_HEALTH;
-		case MOTOR_STATE_START_UP_CHECK_HEALTH:
 			usart_abort_job( &motor_serial, USART_TRANSCEIVER_RX );	
 			
 			if ( motor.motor_state == MOTOR_COMM_START_UP_ERROR ||
