@@ -1898,28 +1898,28 @@ OUTPUT(Bastian_freeRTOS-TRACE.elf elf32-littlearm)
  .debug_abbrev  0x00002fa1      0x1d7 src/ASF/sam0/drivers/port/port.o
  .debug_abbrev  0x00003178      0x281 src/ASF/sam0/drivers/system/pinmux/pinmux.o
 
-.debug_loc      0x00000000     0x8014
+.debug_loc      0x00000000     0x800f
  .debug_loc     0x00000000      0x235 Bastian_freeRTOS-TRACE.o
  .debug_loc     0x00000235      0x773 src/ASF/sam0/drivers/sercom/sercom.o
  .debug_loc     0x000009a8      0x33f src/Peripherals/bastian_sercom.o
  .debug_loc     0x00000ce7      0x193 src/Peripherals/crc_utility.o
- .debug_loc     0x00000e7a      0xb14 src/Peripherals/ebm_papst_motor.o
- .debug_loc     0x0000198e      0x170 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
- .debug_loc     0x00001afe      0xedd src/ASF/sam0/drivers/sercom/usart/usart.o
- .debug_loc     0x000029db      0x5e5 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
- .debug_loc     0x00002fc0       0x85 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
- .debug_loc     0x00003045      0x12b src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
- .debug_loc     0x00003170       0x8b src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.o
- .debug_loc     0x000031fb     0x1525 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
- .debug_loc     0x00004720     0x119c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
- .debug_loc     0x000058bc      0x9c8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
- .debug_loc     0x00006284       0x88 src/ASF/sam0/utils/cmsis/samd21/source/gcc/startup_samd21.o
- .debug_loc     0x0000630c     0x127f src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
- .debug_loc     0x0000758b      0x5af src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
- .debug_loc     0x00007b3a       0x2c src/ASF/sam0/drivers/system/system.o
- .debug_loc     0x00007b66       0x5e src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_loc     0x00007bc4      0x16d src/ASF/sam0/drivers/port/port.o
- .debug_loc     0x00007d31      0x2e3 src/ASF/sam0/drivers/system/pinmux/pinmux.o
+ .debug_loc     0x00000e7a      0xb0f src/Peripherals/ebm_papst_motor.o
+ .debug_loc     0x00001989      0x170 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+ .debug_loc     0x00001af9      0xedd src/ASF/sam0/drivers/sercom/usart/usart.o
+ .debug_loc     0x000029d6      0x5e5 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
+ .debug_loc     0x00002fbb       0x85 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/list.o
+ .debug_loc     0x00003040      0x12b src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/GCC/ARM_CM0/port.o
+ .debug_loc     0x0000316b       0x8b src/ASF/thirdparty/freertos/freertos-8.0.1/Source/portable/MemMang/heap_1.o
+ .debug_loc     0x000031f6     0x1525 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/queue.o
+ .debug_loc     0x0000471b     0x119c src/ASF/thirdparty/freertos/freertos-8.0.1/Source/tasks.o
+ .debug_loc     0x000058b7      0x9c8 src/ASF/thirdparty/freertos/freertos-8.0.1/Source/timers.o
+ .debug_loc     0x0000627f       0x88 src/ASF/sam0/utils/cmsis/samd21/source/gcc/startup_samd21.o
+ .debug_loc     0x00006307     0x127f src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/clock.o
+ .debug_loc     0x00007586      0x5af src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da/gclk.o
+ .debug_loc     0x00007b35       0x2c src/ASF/sam0/drivers/system/system.o
+ .debug_loc     0x00007b61       0x5e src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_loc     0x00007bbf      0x16d src/ASF/sam0/drivers/port/port.o
+ .debug_loc     0x00007d2c      0x2e3 src/ASF/sam0/drivers/system/pinmux/pinmux.o
 
 .debug_aranges  0x00000000      0x798
  .debug_aranges

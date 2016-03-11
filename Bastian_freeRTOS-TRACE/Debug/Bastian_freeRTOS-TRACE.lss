@@ -23,17 +23,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_abbrev 000033f9  00000000  00000000  00035819  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00008014  00000000  00000000  00038c12  2**0
+ 10 .debug_loc    0000800f  00000000  00000000  00038c12  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_aranges 00000798  00000000  00000000  00040c26  2**0
+ 11 .debug_aranges 00000798  00000000  00000000  00040c21  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000828  00000000  00000000  000413be  2**0
+ 12 .debug_ranges 00000828  00000000  00000000  000413b9  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_line   00006430  00000000  00000000  00041be6  2**0
+ 13 .debug_line   00006430  00000000  00000000  00041be1  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_str    00006c88  00000000  00000000  00048016  2**0
+ 14 .debug_str    00006c88  00000000  00000000  00048011  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_frame  00001604  00000000  00000000  0004eca0  2**2
+ 15 .debug_frame  00001604  00000000  00000000  0004ec9c  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -5586,7 +5586,7 @@ void motor_task( void ) {
 					temp_16bit_variable = ( uint16_t ) temp_8bit_variable;
     1dc8:	1c0b      	adds	r3, r1, #0
     1dca:	4003      	ands	r3, r0
-					temp_16bit_variable = temp_16bit_variable << 8;
+					temp_16bit_variable = temp_16bit_variable << 12;
 					motor.rx_ramp_value = motor.rx_ramp_value | temp_16bit_variable; // Ramp Value Obtained!
     1dcc:	8ef9      	ldrh	r1, [r7, #54]	; 0x36
 					motor.rx_ramp_value = ( uint16_t ) motor.rx_data_A[3];
@@ -5594,8 +5594,8 @@ void motor_task( void ) {
 					temp_8bit_variable = motor.rx_data_A[2];
 					temp_8bit_variable = temp_8bit_variable & 0x0F;
 					temp_16bit_variable = ( uint16_t ) temp_8bit_variable;
-					temp_16bit_variable = temp_16bit_variable << 8;
-    1dce:	021b      	lsls	r3, r3, #8
+					temp_16bit_variable = temp_16bit_variable << 12;
+    1dce:	031b      	lsls	r3, r3, #12
 					motor.rx_ramp_value = motor.rx_ramp_value | temp_16bit_variable; // Ramp Value Obtained!
     1dd0:	430b      	orrs	r3, r1
     1dd2:	86fb      	strh	r3, [r7, #54]	; 0x36
@@ -5616,7 +5616,7 @@ void motor_task( void ) {
 					temp_8bit_variable = temp_8bit_variable & 0x0F;
 					temp_16bit_variable = ( uint16_t ) temp_8bit_variable;
     1de8:	4018      	ands	r0, r3
-					temp_16bit_variable = temp_16bit_variable << 8;
+					temp_16bit_variable = temp_16bit_variable << 12;
 					motor.rx_duration_value = motor.rx_duration_value | temp_16bit_variable; // Ramp Value Obtained!
     1dea:	8f3b      	ldrh	r3, [r7, #56]	; 0x38
 					motor.rx_duration_value = ( uint16_t ) motor.rx_data_B[2];
@@ -5624,8 +5624,8 @@ void motor_task( void ) {
 					temp_8bit_variable = motor.rx_data_B[1];
 					temp_8bit_variable = temp_8bit_variable & 0x0F;
 					temp_16bit_variable = ( uint16_t ) temp_8bit_variable;
-					temp_16bit_variable = temp_16bit_variable << 8;
-    1dec:	0200      	lsls	r0, r0, #8
+					temp_16bit_variable = temp_16bit_variable << 12;
+    1dec:	0300      	lsls	r0, r0, #12
 					motor.rx_duration_value = motor.rx_duration_value | temp_16bit_variable; // Ramp Value Obtained!
     1dee:	4318      	orrs	r0, r3
     1df0:	8738      	strh	r0, [r7, #56]	; 0x38
@@ -5648,11 +5648,11 @@ void motor_task( void ) {
     1e04:	8779      	strh	r1, [r7, #58]	; 0x3a
 						// Getting the delay
 					temp_16bit_variable = 0;
-					temp_16bit_variable = (uint16_t) motor.rx_data_A[1];
+					temp_16bit_variable = (uint16_t) ( motor.rx_data_A[1] << 8 );
     1e06:	212e      	movs	r1, #46	; 0x2e
     1e08:	5c79      	ldrb	r1, [r7, r1]
-					motor.rx_delay_value = (uint16_t) temp_16bit_variable << 4;
-    1e0a:	0109      	lsls	r1, r1, #4
+    1e0a:	0209      	lsls	r1, r1, #8
+					motor.rx_delay_value = temp_16bit_variable;
     1e0c:	87b9      	strh	r1, [r7, #60]	; 0x3c
 					temp_8bit_variable = (uint8_t) motor.rx_data_A[2] & 0xF0;
     1e0e:	5cb9      	ldrb	r1, [r7, r2]

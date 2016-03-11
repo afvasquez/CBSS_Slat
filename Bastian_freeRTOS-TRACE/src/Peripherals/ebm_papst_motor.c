@@ -619,7 +619,7 @@ void motor_task( void ) {
 					temp_8bit_variable = motor.rx_data_A[2];
 					temp_8bit_variable = temp_8bit_variable & 0x0F;
 					temp_16bit_variable = ( uint16_t ) temp_8bit_variable;
-					temp_16bit_variable = temp_16bit_variable << 8;
+					temp_16bit_variable = temp_16bit_variable << 12;
 					motor.rx_ramp_value = motor.rx_ramp_value | temp_16bit_variable; // Ramp Value Obtained!
 						// Getting the duration
 					motor.rx_duration_value = ( uint16_t ) motor.rx_data_B[2];
@@ -627,7 +627,7 @@ void motor_task( void ) {
 					temp_8bit_variable = motor.rx_data_B[1];
 					temp_8bit_variable = temp_8bit_variable & 0x0F;
 					temp_16bit_variable = ( uint16_t ) temp_8bit_variable;
-					temp_16bit_variable = temp_16bit_variable << 8;
+					temp_16bit_variable = temp_16bit_variable << 12;
 					motor.rx_duration_value = motor.rx_duration_value | temp_16bit_variable; // Ramp Value Obtained!
 						// Getting the Speed
 					temp_16bit_variable = 0;
@@ -638,8 +638,8 @@ void motor_task( void ) {
 					motor.rx_speed_value = motor.rx_speed_value | (int16_t)temp_8bit_variable; // Speed value obtained!
 						// Getting the delay
 					temp_16bit_variable = 0;
-					temp_16bit_variable = (uint16_t) motor.rx_data_A[1];
-					motor.rx_delay_value = (uint16_t) temp_16bit_variable << 4;
+					temp_16bit_variable = (uint16_t) ( motor.rx_data_A[1] << 8 );
+					motor.rx_delay_value = temp_16bit_variable;
 					temp_8bit_variable = (uint8_t) motor.rx_data_A[2] & 0xF0;
 					motor.rx_delay_value = motor.rx_delay_value | (uint16_t) temp_8bit_variable;	// Delay value obtained!
 					
