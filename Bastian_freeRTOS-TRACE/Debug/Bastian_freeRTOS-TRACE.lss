@@ -17148,7 +17148,7 @@ static inline void system_clock_source_xosc32k_get_config_defaults(
 	/* Configure all GCLK generators except for the main generator, which
 	 * is configured later after all other clock systems are set up */
 	MREPEAT(GCLK_GEN_NUM, _CONF_CLOCK_GCLK_CONFIG_NONMAIN, ~);
-    515e:	2305      	movs	r3, #5
+    515e:	2304      	movs	r3, #4
     5160:	700b      	strb	r3, [r1, #0]
     5162:	2001      	movs	r0, #1
     5164:	4b28      	ldr	r3, [pc, #160]	; (5208 <system_clock_init+0x14c>)
