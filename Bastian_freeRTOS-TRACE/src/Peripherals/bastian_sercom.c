@@ -91,9 +91,15 @@ static void irda_master_callback_received(const struct usart_module *const modul
  						//port_pin_set_output_level(LED_ERROR, pdFALSE);
 
  						//vTracePrintF(event_channel, "Rxd Header!"); 					
-
-							//port_pin_toggle_output_level(LED_BUSY);
+						// Send out the ping and wait
+						//irda_tx_array[0] = 0xBB;
+						//irda_tx_array[0] = 0xBB;
+						//irda_tx_array[0] = 0xBB;
  						irda_comm_state = IRDA_SLAT_FIRST;	// Change state to send first response
+						xTimerResetFromISR ( timer_IrDA_Ping, 0 );
+						
+						//vTracePrintF(event_channel, "Send Resp.");
+						//usart_write_buffer_job(&irda_master, irda_tx_array, 3);
 
  						// The board has been discovered, note so that 0xAA is ignored next pass
  						//lock_allow_main_discovery = pdFALSE;
@@ -124,6 +130,7 @@ static void irda_master_callback_received(const struct usart_module *const modul
 						// If this is correct, this board can be safely assumed to be synchronized
 				if ( crc_check(&irda_rx_array, 4) )
 				{
+					port_pin_set_output_level(LED_BUSY, pdTRUE);
 					
 						// Check if we have an incoming job
 					if ( irda_rx_array[0] > 0x00 && !motor.is_motor_error) {	// if there is a job number, we note this as the start of a job
@@ -140,7 +147,7 @@ static void irda_master_callback_received(const struct usart_module *const modul
 					//port_pin_toggle_output_level(LED_BUSY);
 					irda_comm_state = IRDA_SLAT_STAGE_7A;	// Change state to send first response
 						// The slat card has been synched at this point.
-					port_pin_set_output_level(LED_BUSY, pdTRUE);
+					//port_pin_set_output_level(LED_BUSY, pdTRUE); // UNCOMMENT THIS LINE!!!
 					
 					// Resetting the timer
 					xTimerResetFromISR ( timer_IrDA_Ping, 0 );
@@ -190,6 +197,7 @@ static void irda_master_callback_received(const struct usart_module *const modul
 				
 					// Resetting the timer
 					xTimerResetFromISR ( timer_IrDA_Ping, 0 );
+					port_pin_set_output_level(LED_BUSY, pdFALSE);
 				} else {
 					//vTracePrintF(event_channel, "Wrong Data!");
 					//port_pin_set_output_level(LED_ERROR, pdTRUE);
@@ -212,8 +220,6 @@ static void irda_master_callback_transmitted(const struct usart_module *const mo
 		case IRDA_SLAT_FIRST:	// This is the case where the first Response has been sent
 			// r010716-1608: Change the machine state accordingly
 			irda_comm_state = IRDA_SLAT_FIRST_RESPONSE;	// Go back to the First Response mode
-			
-			
 			
 				// Make sure to reset the timer
 			xTimerResetFromISR ( timer_IrDA_Ping, 0 );

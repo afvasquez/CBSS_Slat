@@ -124,7 +124,7 @@ void irda_communication_task(void) {
 				irda_timed_out = pdFALSE;
 			
 				//port_pin_set_output_level(LED_ERROR, pdFALSE);
-				port_pin_set_output_level(LED_BUSY, pdFALSE);
+				//port_pin_set_output_level(LED_BUSY, pdFALSE); // UNCOMMENT
 				
 				// Start the necessary timers 
 				//vTracePrintF(event_channel, "Rx Request.");
@@ -137,12 +137,27 @@ void irda_communication_task(void) {
 			case IRDA_SLAT_FIRST:  // Send the response back and reset
 				
 				// Send out the ping and wait
+				irda_tx_array[0] = 0xBB;
+				irda_tx_array[1] = 0xBB;
+				irda_tx_array[2] = 0xBB;
+				irda_tx_array[3] = slat.system_address;
+				
+				//vTracePrintF(event_channel, "Send Resp.");
+				
+				// Send this data now
+				xTimerReset( timer_IrDA_Ping, 0 );
+				usart_write_buffer_job(&irda_master, irda_tx_array, 4);
+			break;
+			case IRDA_SLAT_STAGE_7A:
+				// Post r010716-1818:: This stage sends the next message 0xDD
+				// Send out the ping and wait
+				// Send out the ping and wait
 				irda_tx_array[0] = slat.system_address;
 				
-					// Will the motor report the job right now?
+				// Will the motor report the job right now?
 				if ( motor.motor_report_past_job ) {
 					irda_tx_array[1] = motor.motor_job_number;
-					irda_tx_array[2] = motor.motor_job_report;	
+					irda_tx_array[2] = motor.motor_job_report;
 				} else {
 					irda_tx_array[1] = 0x00;
 					irda_tx_array[2] = 0x00;
@@ -151,24 +166,6 @@ void irda_communication_task(void) {
 				motor.motor_report_past_job = false;
 				
 				irda_tx_array[3] = motor.health;
-				//irda_tx_array[4] = 0xBB;
-				
-				crc_generate(&irda_tx_array, 4);	// Generate the CRC byte for this packet
-				
-				//vTracePrintF(event_channel, "Send Resp.");
-				
-				// Send this data now
-				xTimerReset( timer_IrDA_Ping, 0 );
-				usart_write_buffer_job(&irda_master, irda_tx_array, 5);
-			break;
-			case IRDA_SLAT_STAGE_7A:
-				// Post r010716-1818:: This stage sends the next message 0xDD
-				// Send out the ping and wait
-				irda_tx_array[0] = 0xDD;
-				irda_tx_array[1] = 0xDD;
-				irda_tx_array[2] = 0xDD;
-				irda_tx_array[3] = 0xDD;
-				//irda_tx_array[4] = 0xDD;
 				
 				crc_generate(&irda_tx_array, 4);	// Generate the CRC byte for this packet
 				
@@ -209,7 +206,7 @@ void timer_irda_ping_callback(TimerHandle_t pxTimer)
 			// Set the ERROR LED to indicate the start of an Rx, sampling sequence
 			//port_pin_set_output_level(LED_ERROR, pdFALSE);
 			
-			port_pin_set_output_level(LED_BUSY, pdFALSE);
+			//port_pin_set_output_level(LED_BUSY, pdFALSE); // UNCOMMENT!
 			// There was no significant response to the ping,
 			// Reset accordingly
 			usart_abort_job( &irda_master, USART_TRANSCEIVER_RX );

@@ -23,7 +23,7 @@
 #define IRDA_SLAT_RESET		(( uint8_t ) 0x0E )
 	
 	// Half a second wait from observed ping to the next
-#define IRDA_PING_PERIOD	(( TickType_t ) 500 )	
+#define IRDA_PING_PERIOD	(( TickType_t ) 60 )	// DEbug at 60ms
 
 // Address Pin Definitons
 #define ADDR_BIT_0 PIN_PA28
